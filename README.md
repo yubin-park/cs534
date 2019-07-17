@@ -14,6 +14,8 @@ To read the Markdown files, you can use various "free" Markdown viewer applicati
 
 ## Logistics
 
+- Programming Language
+  - Python is the primary language for the course
 - Textbook
   1. [The Elements of Statistical Learning](https://web.stanford.edu/~hastie/ElemStatLearn/) by Trevor Hastie, Robert Tibshirani and Jerome Friedman
   1. [A Course in Machine Learning](http://ciml.info/) by Hal Daum&#xE9; III
@@ -28,8 +30,8 @@ To read the Markdown files, you can use various "free" Markdown viewer applicati
 | 09/04 | Prerequisite - Statistics | . | . |
 | 09/09 | Linear Model - Regression (1)  | . | Homework #1 |
 | 09/11 | Linear Model - Regression (2) | . | . |
-| 09/16 | Linear Model - Classification (1) | . | . |
-| 09/18 | Linear Model - Classification (2) | . | . |
+| 09/16 | Linear Model - Classification | . | . |
+| 09/18 | Linear Model - Other Distributions | . | . |
 | 09/23 | Decision Tree | . | Homework #2 |
 | 09/25 | Boosting | . | . |
 | 09/30 | Bootstrap | . | . |
@@ -38,17 +40,17 @@ To read the Markdown files, you can use various "free" Markdown viewer applicati
 | 10/09 | Evaluation Metrics | . | . |
 | 10/16 | Evaluation Strategies | . | . |
 | 10/21 | _Midterm Exam_ | . | . |
-| 10/23 | Prerequisite - Convex Optimization | . | Homework #4 |
-| 10/28 | Support Vector Machine | . | . |
-| 10/30 | Dimensionality Reduction (1) | . | . |
-| 11/04 | Dimensionality Reduction (2) | . | Homework #5 |
+| 10/23 | Nearest Neighbors | . | Homework #4 |
+| 10/28 | Dimensionality Reduction (1) | . | . |
+| 10/30 | Dimensionality Reduction (2) | . | . |
+| 11/04 | Prerequisite - Convex Optimization | . | Homework #5 |
 | 11/06 | _Project Madness_ | . | . |
-| 11/11 | Nearest Neighbors | . | . |
-| 11/13 | Neural Networks (1) | . | . |
-| 11/18 | Neural Networks (2) | . | . |
-| 11/20 | Deep Learning (1) | . | . |
-| 11/25 | Deep Learning (2) | . | . |
-| 11/27 | Applications - ML in Practice | . | . |
+| 11/11 | Support Vector Machine | . | . |
+| 11/13 | Neural Networks | . | . |
+| 11/18 | Deep Learning (1) | . | . |
+| 11/20 | Deep Learning (2) | . | . |
+| 11/25 | Applications - DL-based Drug Discovery | . | . |
+| 11/27 | Applications - Recommender System | . | . |
 | 12/02 | _Presentations_ | . | . |
 | 12/04 | _Presentations_ | . | . |
 | 12/09 | _Presentations_ | . | . |
