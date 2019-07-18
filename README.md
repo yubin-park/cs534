@@ -2,13 +2,13 @@
 
 This repository contains course materials for [CS 534 - Machine Learning](https://www.cs.emory.edu/courses/atlas/graduate/) provided in Fall 2019 at [Emory University](http://www.emory.edu/home/index.html).
 
-Course syllabus, slides, and homeworks are largely adopted from Professor Joyce Ho's [CS534 class](https://joyceho.github.io/course/cs534_f18/).
+Course syllabus, slides, and homework are largely borrowed/copied from Professor Joyce Ho's [CS534 class](https://joyceho.github.io/course/cs534_f18/).
 
 ## Overview
 
 ["Software is eating the world"](https://a16z.com/2011/08/20/why-software-is-eating-the-world/)
  said Marc Andreessen in 2011. 
-Six years later, this famous quote was wittely supplemented with
+Six years later, this famous quote was wittily supplemented with
 ["..., but AI is going to eat software"](https://www.technologyreview.com/s/607831/nvidia-ceo-software-is-eating-the-world-but-ai-is-going-to-eat-software/)
 by Jensen Huang.
 
@@ -23,7 +23,7 @@ Students will have a chance to implement and test some of the core machine learn
 At the end of the class, students will be able to 
 1) identify and formulate machine learning problems, 
 2) implement and test appropriate machine learning algorithms, and
-3) understand and articulate limitations of the approaches.
+3) understand and articulate the limitations of the approaches.
 
 _Prerequisites:_
 - Undergraduate-level linear algebra
@@ -36,7 +36,7 @@ _Prerequisites:_
 - Programming Language
   - Python is the primary language for the course
 - Textbook
-  1. [The Elements of Statistical Learning](https://web.stanford.edu/~hastie/ElemStatLearn/) by Trevor Hastie, Robert Tibshirani and Jerome Friedman
+  1. [The Elements of Statistical Learning](https://web.stanford.edu/~hastie/ElemStatLearn/) by Trevor Hastie, Robert Tibshirani, and Jerome Friedman
   1. [A Course in Machine Learning](http://ciml.info/) by Hal Daum&#xE9; III
 - Office Hours
   - TBD
@@ -118,7 +118,7 @@ _Grading for the Final Project:_
   - Late submissions are accepted with the following scoring rule:
       - `Score = 0.7^{number_of_late_days} x original_score` 
       - The number of late days counts from 1 right after the deadline.
-      - Note that `0.7^14=0.00678`. This means homeworks submitted after 2 weeks will get zero points regardless of their original scores.
+      - Note that `0.7^14=0.00678`. This means homework submitted after 2 weeks will get zero points regardless of their original scores.
   - No partial submission is allowed. You either submit the full homework on-time or not.
   - The latest submission will count as the submission.
     - Even if your prior submissions have higher scores, the scores from the later submissions will overwrite.
@@ -126,14 +126,14 @@ _Grading for the Final Project:_
 - Midterm Exam
   - The midterm exam is open-book, open-notes, but no electronic devices.
   - The exam must be taken at the required time.
-  - If you need to reschedule the midterm exam, you must request at least a week prior to the exam date to be considered.
+  - If you need to reschedule the midterm exam, you must request at least a week before the exam date to be considered.
 
 ## Honor Code
 
-All class work is governed by the College Honor Code and Departmental Policy. 
-It is acceptable and encouraged to discuss homeworks with other students. 
+All classwork is governed by the College Honor Code and Departmental Policy. 
+It is acceptable and encouraged to discuss homework with other students. 
 However, this should be noted on your submitted homework and all code and writeup must be written by yourself. 
-Any code and writeup that is found to be similar is grounds for an honor code investigation by the Director of Gradute Studies, Laney Graduate School, and the honor council. 
+Any code and writeup that is found to be similar are grounds for an honor code investigation by the Director of Graduate Studies, Laney Graduate School, and the honor council. 
 Additional extensions on assignments will be granted with appropriate documentation from the Office of Undergraduate Education (OUE).
 
 
