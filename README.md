@@ -4,13 +4,32 @@ This repository contains course materials for [CS 534 - Machine Learning](https:
 
 Course syllabus, slides, and homeworks are largely adopted from Professor Joyce Ho's [CS534 class](https://joyceho.github.io/course/cs534_f18/).
 
-NOTE: Course materials with the `md` extension are [Markdown](https://en.wikipedia.org/wiki/Markdown) files.
-To read the Markdown files, you can use various "free" Markdown viewer applications out there e.g:
-- [Markdown Viewer Chrome Add-on](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk?hl=en)
-- [Slide-style View using Remark](https://github.com/gnab/remark)
-- [Slide-style View using Remark (web service)](https://remarkjs.com/remarkise)
-
 ## Overview
+
+["Software is eating the world"](https://a16z.com/2011/08/20/why-software-is-eating-the-world/)
+ said Marc Andreessen in 2011. 
+Six years later, this famous quote was wittely supplemented with
+["..., but AI is going to eat software"](https://www.technologyreview.com/s/607831/nvidia-ceo-software-is-eating-the-world-but-ai-is-going-to-eat-software/)
+by Jensen Huang.
+
+We are living in an exciting time.
+Machine learning and artificial intelligence are impacting every aspect of our lives.
+From shopping groceries to treating diseases, 
+people are experimenting and adopting machine learning algorithms, 
+achieving the level of productivity that was never possible before.
+
+In this course, students will learn some of the fundamental concepts, theories, and algorithms of machine learning. 
+Students will have a chance to implement and test some of the core machine learning algorithms.
+At the end of the class, students will be able to 
+1) identify and formulate machine learning problems, 
+2) implement and test appropriate machine learning algorithms, and
+3) understand and articulate limitations of the approaches.
+
+_Prerequisites:_
+- Undergraduate-level linear algebra
+- Undergraduate-level probability 
+- Undergraduate-level algorithms
+- Programming ability in Python 
 
 ## Logistics
 
@@ -43,7 +62,7 @@ To read the Markdown files, you can use various "free" Markdown viewer applicati
 | 10/23 | Nearest Neighbors | . | Homework #4 |
 | 10/28 | Dimensionality Reduction (1) | . | . |
 | 10/30 | Dimensionality Reduction (2) | . | . |
-| 11/04 | Prerequisite - Convex Optimization | . | Homework #5 |
+| 11/04 | Convex Optimization | . | Homework #5 |
 | 11/06 | _Project Madness_ | . | . |
 | 11/11 | Support Vector Machine | . | . |
 | 11/13 | Neural Networks | . | . |
@@ -55,11 +74,59 @@ To read the Markdown files, you can use various "free" Markdown viewer applicati
 | 12/04 | _Presentations_ | . | . |
 | 12/09 | _Presentations_ | . | . |
 
+NOTE: Course materials with the `md` extension are [Markdown](https://en.wikipedia.org/wiki/Markdown) files.
+To read the Markdown files, you can use various "free" Markdown viewer applications out there e.g:
+- [Markdown Viewer Chrome Add-on](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk?hl=en)
+- [Slide-style View using Remark](https://github.com/gnab/remark)
+- [Slide-style View using Remark (web service)](https://remarkjs.com/remarkise)
+
+
 ## Grading
+
+- Homeworks: 35%
+- Midterm: 15%
+- Project: 40%
+- Participation: 10%
 
 ## Project
 
+The goal of the final project is to: 
+1. identify and formulate a machine learning problem, 
+1. come up with appropriate solutions, 
+1. implement the solutions, 
+1. analyze the results and limitations, and 
+1. suggest any algorithmic/engineering improvements.
+
+You are free to find any datasets and problems of your research interest.
+
+You are encouraged to work in groups of 2-3 people for the project.
+Teams are required to hand in a project proposal, a final report, and presentation slides of their work.
+
+The project contributes to 40% of your final grade. 
+By default, all team members will receive the same score for their project.
+
+_Grading for the Final Project:_
+- Proposal (due TBD): 15%
+- Madness (due TBD): 10%
+- Presentation (due TBD): 25%
+- Report (due TBD): 50%
+
 ## Policy
+
+- Assignments
+  - Homeworks are due electronically on Canvas at 11:59 pm ET.
+  - Late submissions are accepted with the following scoring rule:
+      - `Score = 0.7^{number_of_late_days} x original_score` 
+      - The number of late days counts from 1 right after the deadline.
+      - Note that `0.7^14=0.00678`. This means homeworks submitted after 2 weeks will get zero points regardless of their original scores.
+  - No partial submission is allowed. You either submit the full homework on-time or not.
+  - The latest submission will count as the submission.
+    - Even if your prior submissions have higher scores, the scores from the later submissions will overwrite.
+
+- Midterm Exam
+  - The midterm exam is open-book, open-notes, but no electronic devices.
+  - The exam must be taken at the required time.
+  - If you need to reschedule the midterm exam, you must request at least a week prior to the exam date to be considered.
 
 ## Honor Code
 
