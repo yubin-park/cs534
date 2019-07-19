@@ -37,7 +37,7 @@ From the data, obtain the mean and variance of the Apple stock's daily return.
 
 ## Problem 3
 
-Your 3 years old son is an evil genius. 
+Your 3 year-old son is an evil genius. 
 While Mom is busy washing dishes, your son came up with a very silly game of mixing his chocolate milk and orange juice.
 He first pours 30% of chocolate milk to the cup that has orange juice originally, 
 then pours 20% of whatever-it-is-now in the orange juice cup to the chocolate milk cup. 
