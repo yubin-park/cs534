@@ -1,0 +1,17 @@
+data <- read.csv("hw0_p1.csv")
+str(data)
+plot(data)
+data$x2abs <- abs(data$x2)
+plot(data)
+data$x2abs <- log(abs(data$x2)+1)
+plot(data)
+data$x2abs <- log(abs(data$x2)+1) + data$x1 * data$x2
+plot(data)
+data$x2abs <- log(abs(data$x2)+1) + data$x1 * data$x2 + data$x1
+plot(data)
+data <- read.csv("AAPL.csv")
+str(data)
+return <- data$Close[2:]/data$Close[1:(nrow(data)-1)]
+return <- data$Close[2:nrow(data)]/data$Close[1:(nrow(data)-1)]
+plot(return)
+hist(return)

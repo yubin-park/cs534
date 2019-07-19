@@ -39,13 +39,14 @@ _Prerequisites:_
   1. [The Elements of Statistical Learning](https://web.stanford.edu/~hastie/ElemStatLearn/) by Trevor Hastie, Robert Tibshirani, and Jerome Friedman
   1. [A Course in Machine Learning](http://ciml.info/) by Hal Daum&#xE9; III
 - Office Hours
-  - TBD
+  - 2:30 pm ET - 3:30 pm ET on Monday
+  - 12:00 pm ET - 1:00 pm ET on Wednesday
 
 ## Schedule
 
 | Date | Topic | Reference | Assignment |
 | ---- | ----- | --------- | ---------- |
-| 08/28 | Introduction | . | Homework #0 |
+| 08/28 | Introduction | . | [Homework #0](homework/hw0.md) |
 | 09/04 | Prerequisite - Statistics | . | . |
 | 09/09 | Linear Model - Regression (1)  | . | Homework #1 |
 | 09/11 | Linear Model - Regression (2) | . | . |
@@ -63,7 +64,7 @@ _Prerequisites:_
 | 10/28 | Dimensionality Reduction (1) | . | . |
 | 10/30 | Dimensionality Reduction (2) | . | . |
 | 11/04 | Convex Optimization | . | Homework #5 |
-| 11/06 | _Project Madness_ | . | . |
+| 11/06 | _Project Elevator Pitch_ | . | . |
 | 11/11 | Support Vector Machine | . | . |
 | 11/13 | Neural Networks | . | . |
 | 11/18 | Deep Learning (1) | . | . |
@@ -102,14 +103,17 @@ You are free to find any datasets and problems of your research interest.
 You are encouraged to work in groups of 2-3 people for the project.
 Teams are required to hand in a project proposal, a final report, and presentation slides of their work.
 
-The project contributes to 40% of your final grade. 
-By default, all team members will receive the same score for their project.
+Note that the final project contributes to 40% of your final grade. 
+The final report should include a section that details each member's contribution to the project. 
 
 _Grading for the Final Project:_
 - Proposal (due TBD): 15%
-- Madness (due TBD): 10%
+- Elevator Pitch (due TBD): 10%
+  - Elevator pitch needs to address 1) why the problem is important or interesting, 2) what are existing solutions, and 3) how you plan to solve the problem differently
+  - Teams are required to present this in **2 minutes** - that's why it's called elevator pitch.
 - Presentation (due TBD): 25%
 - Report (due TBD): 50%
+
 
 ## Policy
 
@@ -130,11 +134,10 @@ _Grading for the Final Project:_
 
 ## Honor Code
 
-All classwork is governed by the College Honor Code and Departmental Policy. 
+All classwork is governed by the College Honor Code, Emory Laney Graduate School, and Computer Science Departmental Policy. 
 It is acceptable and encouraged to discuss homework with other students. 
 However, this should be noted on your submitted homework and all code and writeup must be written by yourself. 
 Any code and writeup that is found to be similar are grounds for an honor code investigation by the Director of Graduate Studies, Laney Graduate School, and the honor council. 
-Additional extensions on assignments will be granted with appropriate documentation from the Office of Undergraduate Education (OUE).
 
 
 
