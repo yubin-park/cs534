@@ -6,20 +6,26 @@ Course syllabus, slides, and homework are largely borrowed/copied from Professor
 
 ## Overview
 
-["Software is eating the world"](https://a16z.com/2011/08/20/why-software-is-eating-the-world/)
+["Software is eating the world,"](https://a16z.com/2011/08/20/why-software-is-eating-the-world/)
  said Marc Andreessen in 2011. 
-Six years later, this famous quote was wittily supplemented with
+By then, he was referring to companies like Amazon, Netflix, Apple, and Google who are massively transforming the traditional industries with the power of internet and software.
+It was true in some sense, as apparent in [their enormous growth in market capitalization](https://www.investopedia.com/terms/f/faang-stocks.asp).
+However, now we know that it was just a beginning. 
+Under the hood, these companies have been collecting massive amounts of data through their platforms, and they are preparing for the second round.
+Guess what?
+Yes, Artificial Intelligence.
+Six years later, Marc Andreessen's famous quote was wittily supplemented with
 ["..., but AI is going to eat software"](https://www.technologyreview.com/s/607831/nvidia-ceo-software-is-eating-the-world-but-ai-is-going-to-eat-software/)
 by Jensen Huang.
 
 We are living in an exciting time.
-Machine learning and artificial intelligence are impacting every aspect of our lives.
+Artificial intelligence and its key engine, machine learning, are impacting [every aspect of our lives](http://www.bbc.com/future/machine-minds).
 From shopping groceries to treating diseases, 
 people are experimenting and adopting machine learning algorithms, 
 achieving the level of productivity that was never possible before.
 
 In this course, students will learn some of the fundamental concepts, theories, and algorithms of machine learning. 
-Students will have a chance to implement and test some of the core machine learning algorithms.
+Students will have a chance to implement and test some of the time-tested machine learning algorithms.
 At the end of the class, students will be able to 
 1) identify and formulate machine learning problems, 
 2) implement and test appropriate machine learning algorithms, and
@@ -46,7 +52,7 @@ _Prerequisites:_
 
 | Date | Topic | Reference | Assignment |
 | ---- | ----- | --------- | ---------- |
-| 08/28 | Introduction | . | [Homework #0](homework/hw0.md) |
+| 08/28 | [Introduction](prerequisite/slides.html) | . | [Homework #0](homework/hw0.md) |
 | 09/04 | Prerequisite - Statistics | . | . |
 | 09/09 | Linear Model - Regression (1)  | . | Homework #1 |
 | 09/11 | Linear Model - Regression (2) | . | . |
