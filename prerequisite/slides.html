@@ -380,17 +380,163 @@ class: center, middle
 
 Your friend, Bob, says 
 
-"Hey, I am from Boston. In Boston, houses near Charles River are more expensive than the others. You should put that in your model."
+"Hey, I am a real estate expert. 
+
+Houses near a river, in this case Charles River, 
+
+are more expensive than the others. 
+
+You should put that in your model."
 
 How would you know Bob's statement is true?
 
 ---
 
-Hypothesis Testing: TBD
+class: center, middle
+
+On the other hand, 
+
+I think the prices are not affected by such factor.
+
+What is the probability that my theory 
+
+**looks wrong** due to the samples? i.e.
+
+
+$$x_i \sim \mathcal{N}(\mu, \sigma^2)$$
+
+$$z_j \sim \mathcal{N}(\mu, \sigma^2)$$
+
+$$\text{Pr}(\frac{\sum{x_i}}{n} \neq \frac{\sum{z_j}}{m})?$$
+
+where `\(x_i\)` and `\(z_j\)` represent house prices 
+
+with/without river nearby, respectively.
 
 ---
 
-Other distributions: TBD
+class: center, middle
+
+Unfortunately, in this setup, 
+
+I would look **almost always wrong** i.e. `\(\text{Pr}(\frac{\sum{x_i}}{n} \neq \frac{\sum{z_j}}{m}) \approx 1 \)`
+
+Note that we are dealing with **continuous random variables**.
+
+Maybe a better formulation is:
+
+"To prove me wrong, 
+
+**how much different**  
+
+should their sample averages be?"
+
+---
+
+class: center, middle
+
+I will calculate a probability that 
+
+my theory, _the null hypothesis_,  
+
+still reasonably explains the samples.
+
+If the probability is low, then you may be right?
+
+
+![null hypothesis](img/I-am-the-null-hypothesis.jpg)
+
+---
+
+## [Hypothesis Testing](https://en.wikipedia.org/wiki/Statistical_hypothesis_testing)
+
+Calculate a statistically meaningful number using the samples:
+
+$$ t = f([x_0, x_1, \cdots, x_n], [z_0, z_1, \cdots, z_m])$$
+
+If you assume the equal variances between `\(X\)` and `\(Z\)`, then [Student's t-test](https://en.wikipedia.org/wiki/Student%27s_t-test).
+
+If you think their variances are different, then [Welch's t-test](https://en.wikipedia.org/wiki/Welch%27s_t-test).
+
+It is always about what assumptions you make. 
+
+[Many other variants](https://en.wikipedia.org/wiki/Test_statistic) based on different assumptions.
+
+The probability of this t-statistics, _which you may end up using/hearing a lot of times in your professinoal career_, is the [infamous](https://en.wikipedia.org/wiki/Misuse_of_p-values) **"[p-value](https://en.wikipedia.org/wiki/P-value)"**.
+
+---
+
+class: center, middle
+
+Just for fun.
+
+![p value](img/p_values.png)
+
+.reference[https://xkcd.com/1478/]
+
+---
+
+Let's run some tests for real.
+
+```python
+from scipy import stats
+houses_noriver = df.loc[df["CHAS"]==0,"MEDV"].values
+houses_wriver = df.loc[df["CHAS"]==1,"MEDV"].values
+
+print("Avg(Prices w/ River): ${0:.2f}".format(np.mean(houses_wriver)*1000))
+print("Std(Prices w/ River): ${0:.2f}".format(np.std(houses_wriver)*1000))
+print("Avg(Prices w/o River): ${0:.2f}".format(np.mean(houses_noriver)*1000))
+print("Std(Prices w/o River): ${0:.2f}".format(np.std(houses_noriver)*1000))
+
+results = stats.ttest_ind(houses_wriver, houses_noriver, equal_var=True)
+print(results)
+
+results = stats.ttest_ind(houses_wriver, houses_noriver, equal_var=False)
+print(results)
+```
+
+```terminal
+Avg(Prices w/ River): $28440.00
+Std(Prices w/ River): $11646.61
+Avg(Prices w/o River): $22093.84
+Std(Prices w/o River): $8821.98
+Ttest_indResult(statistic=3.996437466090508, pvalue=7.390623170519937e-05)
+Ttest_indResult(statistic=3.113291312794837, pvalue=0.003567170098137517)
+```
+
+Looks like your friend, Bob, may be right.
+
+.reference[https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html]
+
+---
+
+Or, if you are lazy like me:
+
+```python
+ax = df.boxplot(column="MEDV", by="CHAS")
+fig = ax.get_figure()
+fig.savefig("img/boxplot_CHAS_MEDV.png")
+ax.clear()
+```
+
+![boxplot_river](img/boxplot_CHAS_MEDV.png)
+
+Sometimes, it is more obvious in a graph than a number.
+
+.reference[https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.boxplot.html]
+
+
+---
+
+class: center, middle
+
+Please explore the other variables in the dataset **by yourself**.
+
+What other distributions do you see?
+
+What other hypotheses can you come up and how would you validate?
+
+How would you visualize the data to support your claims?
 
 ---
 
@@ -401,10 +547,10 @@ class: center, middle
 </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
     </script>
-        <script type="text/javascript">
-      var hljs = remark.highlighter.engine;
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript">
     </script>
     <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
       /*
         Language: terminal console
         Author: Josh Bode <joshbode@gmail.com>
@@ -438,6 +584,15 @@ class: center, middle
         next.insertAdjacentHTML("beforebegin", next.textContent);
         next.parentNode.removeChild(next);
       });
+
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+
+      MathJax.Hub.Configured();
     </script>
   </body>
 </html>

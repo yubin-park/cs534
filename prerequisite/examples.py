@@ -48,22 +48,26 @@ fig = ax.get_figure()
 fig.savefig("img/histogram_{}.png".format(col_simul))
 ax.clear()
 
-#def normal_pdf(x, mu, sigma):
-#    sigma2 = np.square(sigma)
-#    pdf = np.exp(-np.square(x - mu)/2/sigma2)
-#    norm_const = np.sqrt(2*np.pi*sigma2)
-#    return pdf/norm_const
+from scipy import stats
+houses_noriver = df.loc[df["CHAS"]==0,"MEDV"].values
+houses_wriver = df.loc[df["CHAS"]==1,"MEDV"].values
+
+print("Avg(Prices w/ River): ${0:.2f}".format(np.mean(houses_wriver)*1000))
+print("Std(Prices w/ River): ${0:.2f}".format(np.std(houses_wriver)*1000))
+print("Avg(Prices w/o River): ${0:.2f}".format(np.mean(houses_noriver)*1000))
+print("Std(Prices w/o River): ${0:.2f}".format(np.std(houses_noriver)*1000))
+
+results = stats.ttest_ind(houses_wriver, houses_noriver, equal_var=True)
+print(results)
+
+results = stats.ttest_ind(houses_wriver, houses_noriver, equal_var=False)
+print(results)
 
 ax = df.boxplot(column="MEDV", by="CHAS")
 fig = ax.get_figure()
 fig.savefig("img/boxplot_CHAS_MEDV.png")
 ax.clear()
 
-a = df.loc[df["CHAS"]==0,"MEDV"].values
-b = df.loc[df["CHAS"]==1,"MEDV"].values
 
-from scipy import stats
-
-print(stats.ttest_ind(a, b))
 
 
