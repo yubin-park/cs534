@@ -345,7 +345,7 @@ Why do we calculate mean and variance?
 
 Because these statistics can "summarize" the data.
 
-These are **summary statistics**.
+They are called **summary statistics**.
 
 .reference[https://en.wikipedia.org/wiki/Summary_statistics]
 
@@ -390,22 +390,22 @@ class: center, middle
 
 On the other hand, 
 
-I think the prices are not affected by the river factor.
+I think the prices are not affected by the river.
 
-What is the probability that my theory 
+I want to prove that I am right.
 
-**looks wrong** due to the samples? i.e.
+One approach would be to calculate 
 
+the sample means of the two groups
 
-$$x_i \sim \mathcal{N}(\mu, \sigma^2)$$
+and see if they are the same? i.e. 
 
-$$z_j \sim \mathcal{N}(\mu, \sigma^2)$$
+$$\frac{\sum{x_i}}{n} = \frac{\sum{z_j}}{m}?$$
 
-$$\text{Pr}(\frac{\sum{x_i}}{n} \neq \frac{\sum{z_j}}{m})?$$
+where `\( x_i \)` and `\( z_j \)` represent house prices 
 
-where `\(x_i\)` and `\(z_j\)` represent house prices 
+with/without river nearby respectively.
 
-with/without river nearby, respectively.
 
 ---
 
@@ -417,25 +417,23 @@ I would look **almost always wrong** i.e. `\(\text{Pr}(\frac{\sum{x_i}}{n} \neq 
 
 Note that we are dealing with **[continuous random variables](https://en.wikipedia.org/wiki/Random_variable#Continuous_random_variable)**.
 
-Maybe a better formulation is:
+Instead, what we can say is:
 
-"To prove me wrong, 
+"If I am right, their sample means should be close enough."
 
-**how much different**  
-
-should their sample averages be?"
+But how much close?
 
 ---
 
 class: center, middle
 
-I will calculate a probability that 
+I will calculate the likelihood of observing
 
-my theory, _the null hypothesis_,  
+the difference between the sample means
 
-still reasonably explains the samples.
+assuming my theory, _the null hypothesis_, holds. 
 
-If the probability is low, then you may be right?
+_If the probability is low, then Bob may be right?_
 
 ![null hypothesis](img/I-am-the-null-hypothesis.jpg)
 
