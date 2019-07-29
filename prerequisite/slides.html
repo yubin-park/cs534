@@ -126,8 +126,6 @@ _Just FYI, what [Wikipedia](https://en.wikipedia.org/wiki/Machine_learning) says
 
 > Machine learning (ML) is the scientific study of algorithms and statistical models that computer systems use in order to perform a specific task effectively without using explicit instructions, relying on patterns and inference instead.
 
-
-
 ---
 
 ## About Me
@@ -142,8 +140,6 @@ Most recently, I worked for [7-Eleven, Inc.](https://www.7-eleven.com/) leading 
 Prior to that, I worked for [Evolent Health, Inc.](https://www.evolenthealth.com/) as Managing Director of AI Solutions. 
 I joined Evolent through the acquisition of my start-up, a healthcare analytics start-up, [Accordion Health, Inc.](https://www.crunchbase.com/organization/accordion-health#section-overview)
 I received my Ph.D. degree from [the University of Texas at Austin](https://www.utexas.edu/) by studying various algorithms in machine learning and their healthcare applications.
-
-
 
 ---
 
@@ -240,7 +236,7 @@ print(df.head())
 ```
 
 ```terminal
-      CRIM    ZN  INDUS  CHAS    NOX  ...    TAX  PTRATIO       B  LSTAT  PRICE
+      CRIM    ZN  INDUS  CHAS    NOX  ...    TAX  PTRATIO       B  LSTAT   MEDV
 0  0.00632  18.0   2.31   0.0  0.538  ...  296.0     15.3  396.90   4.98   24.0
 1  0.02731   0.0   7.07   0.0  0.469  ...  242.0     17.8  396.90   9.14   21.6
 2  0.02729   0.0   7.07   0.0  0.469  ...  242.0     17.8  392.83   4.03   34.7
@@ -287,7 +283,6 @@ ax.clear()
 
 .reference[https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.hist.html]
 
-
 ---
 
 Visualizing a cumulative index
@@ -307,7 +302,6 @@ ax.clear()
 | histogram | cumulative index | 
 | --- | --- |
 | ![RM histogram](img/histogram_RM.png) | ![RM cdf](img/cdf_RM.png) |
-
 
 ---
 
@@ -370,7 +364,7 @@ col = "MEDV" # then repeat the same process
 | ![RM actual](img/histogram_MEDV.png) | ![RM simulated](img/histogram_MEDV_simul.png) |
 
 
-The PRICE variable seems like [a mixture of two normal distributions](https://en.wikipedia.org/wiki/Mixture_model).
+The MEDV variable seems like [a mixture of two normal distributions](https://en.wikipedia.org/wiki/Mixture_model).
 Thus, the simulated histogram does not look similar with the original as well as in the RM variable.
 Note that [the normality assumption](https://en.wikipedia.org/wiki/Normality_test) does not hold always. 
 
@@ -396,7 +390,7 @@ class: center, middle
 
 On the other hand, 
 
-I think the prices are not affected by such factor.
+I think the prices are not affected by the river factor.
 
 What is the probability that my theory 
 
@@ -421,7 +415,7 @@ Unfortunately, in this setup,
 
 I would look **almost always wrong** i.e. `\(\text{Pr}(\frac{\sum{x_i}}{n} \neq \frac{\sum{z_j}}{m}) \approx 1 \)`
 
-Note that we are dealing with **continuous random variables**.
+Note that we are dealing with **[continuous random variables](https://en.wikipedia.org/wiki/Random_variable#Continuous_random_variable)**.
 
 Maybe a better formulation is:
 
@@ -443,7 +437,6 @@ still reasonably explains the samples.
 
 If the probability is low, then you may be right?
 
-
 ![null hypothesis](img/I-am-the-null-hypothesis.jpg)
 
 ---
@@ -456,7 +449,7 @@ $$ t = f([x_0, x_1, \cdots, x_n], [z_0, z_1, \cdots, z_m])$$
 
 If you assume the equal variances between `\(X\)` and `\(Z\)`, then [Student's t-test](https://en.wikipedia.org/wiki/Student%27s_t-test).
 
-If you think their variances are different, then [Welch's t-test](https://en.wikipedia.org/wiki/Welch%27s_t-test).
+Or, if you think their variances are different, then [Welch's t-test](https://en.wikipedia.org/wiki/Welch%27s_t-test).
 
 It is always about what assumptions you make. 
 
