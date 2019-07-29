@@ -10,10 +10,12 @@ Course syllabus, slides, and homework are largely borrowed/copied from Professor
  said Marc Andreessen in 2011. 
 By then, he was referring to companies like Amazon, Netflix, Apple, and Google who are massively transforming the traditional industries with the power of internet and software.
 It was true in some sense, as apparent in [their enormous growth in market capitalization](https://www.investopedia.com/terms/f/faang-stocks.asp).
-However, now we know that it was just a beginning. 
-Under the hood, these companies have been collecting massive amounts of data through their platforms, and they are preparing for the second round.
-Guess what?
-Yes, Artificial Intelligence.
+
+How did these companies become so successful?
+There may be many reasons, one may say. 
+Unfortunately, the answer to this question is beyond the scope of this course.
+However, I find that one commonality of these companies remarkably stands out:
+their love for data.
 Six years later, Marc Andreessen's famous quote was wittily supplemented with
 ["..., but AI is going to eat software"](https://www.technologyreview.com/s/607831/nvidia-ceo-software-is-eating-the-world-but-ai-is-going-to-eat-software/)
 by Jensen Huang.
@@ -52,7 +54,7 @@ _Prerequisites:_
 
 | Date | Topic | Reference | Assignment |
 | ---- | ----- | --------- | ---------- |
-| 08/28 | [Introduction](prerequisite/slides.html) | . | [Homework #0](homework/hw0.md) |
+| 08/28 | [Introduction](prerequisite/slides.pdf) | . | [Homework #0](homework/hw0.md) |
 | 09/04 | Prerequisite - Statistics | . | . |
 | 09/09 | Linear Model - Regression (1)  | . | Homework #1 |
 | 09/11 | Linear Model - Regression (2) | . | . |

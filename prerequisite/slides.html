@@ -17,6 +17,20 @@
       .reference{
       	font-size: 10px;
       }
+      @page {
+        size: 908px 681px;
+        margin: 0;
+      }
+
+      @media print {
+        .remark-slide-scaler {
+          width: 100% !important;
+          height: 100% !important;
+          transform: scale(1) !important;
+          top: 0 !important;
+          left: 0 !important;
+        }
+      }
     </style>
   </head>
   <body>
@@ -67,7 +81,17 @@ Seems software has been really eating the world...
 
 .reference[https://www.economist.com/finance-and-economics/2018/06/23/most-stockmarket-returns-come-from-a-tiny-fraction-of-shares]
 
-But how?
+---
+
+class: center, middle
+
+How did they become so successful?
+
+Many reasons maybe.
+
+However, one commonality remarkably stands out:
+
+Their love for **data**
 
 ---
 
@@ -112,25 +136,39 @@ Currently, I am
 - Adjunct Professor at [Emory University](http://www.emory.edu/home/index.html)
 - Principal Scientist (part-time) at [WithMe Health, Inc.](http://withme.health/)
 - Principal at [Bonsai Research, LLC.](https://bonsairesearch.com/)
+- Advisor at [Tensility Venture Partners](http://www.tensilityvc.com/)
 
-Most recently, I worked for [7-Eleven, Inc.](https://www.7-eleven.com/)leading a team of data scientists to automate their inventory management and analyze consumer behaviors. 
-Before that, I worked for [Evolent Health, Inc.](https://www.evolenthealth.com/) as Managing Director of AI Solutions. 
-I joined Evolent through the acquisition of my start-up, a healthcare analytics start-up, [Accordion Health, Inc.](https://www.crunchbase.com/organization/accordion-health#section-overview), which I co-founded right after getting my Ph.D. degree from [the University of Texas at Austin](https://www.utexas.edu/). 
-I received my degree by studying various algorithms in machine learning and their healthcare applications.
+Most recently, I worked for [7-Eleven, Inc.](https://www.7-eleven.com/) leading a team of data scientists to automate/analyze their inventory management and consumer behaviors. 
+Prior to that, I worked for [Evolent Health, Inc.](https://www.evolenthealth.com/) as Managing Director of AI Solutions. 
+I joined Evolent through the acquisition of my start-up, a healthcare analytics start-up, [Accordion Health, Inc.](https://www.crunchbase.com/organization/accordion-health#section-overview)
+I received my Ph.D. degree from [the University of Texas at Austin](https://www.utexas.edu/) by studying various algorithms in machine learning and their healthcare applications.
 
-
-
----
-
-## Course Schedule
-
-Machine learning is a rapidly evoling research decipline.
-We cover both 1) the ones that are time-tested and 2) recently popularized.
 
 
 ---
 
-## Things Not Covered Here
+## Course Schedule & Logisitcs
+
+Machine learning is a rapidly evoling research discipline.
+
+We will cover: 
+- Time-tested models and algorithms
+  - Linear models
+  - Decision trees
+  - Support vector machines
+  - Boosting and bagging
+  - (and some others)
+- Evaluation strategies and methodologies
+- Recently popularized models and algorithms
+  - Deep learning
+  - (and real world applications)
+
+The course schedule and course logistics are available on the course website:
+https://github.com/yubin-park/cs534
+
+---
+
+## Things Not Covered
 
 - Bayesian Models
 - Unsupervised Learning
@@ -138,36 +176,268 @@ We cover both 1) the ones that are time-tested and 2) recently popularized.
 	- Topic Modeling
 - Time Series Models
 - Learning Theory
+- Decision Theory
+- Reinforcement Learning
 
----
-
-## Logistics
-
-- Please check the course website
-- https://github.com/yubin-park/cs534
-- Regularly updated
+If you want to learn about the topics not covered in this course, 
+please take a look at these courses:
+[CS570 Data Mining](http://www.mathcs.emory.edu/~lxiong/cs570/) and 
+[CS557 Artificial Intelligence](http://www.mathcs.emory.edu/site/people/faculty/individual.php?NUM=24).
 
 ---
 
 ## Homework \#0
 
-- Follow the link on the course website, or
 - https://github.com/yubin-park/cs534/blob/master/homework/hw0.md
 - Should take an hour to three hours (max)
-- This course is a Computer Science course, so you would "code" a lot
+- This is a Computer Science course, so you need to "code"
 - The homework is to test your knowledge with reading data files, slicing the data, visualizing, and find any patterns
+- Due 9/2 at 11:59 PM — NO LATE DAYS ALLOWED
+- Meant to be an assessment of your preparation — all students MUST submit this
+- Strongly encourage you to drop this course if any of these conditions apply:
+  - Difficulty completing it in less than 6 hours
+  - Difficulty with more than 1 problem
 
 ---
 
 # Statistics Crash Course
 
-TBD 
+- Distributions
+- Summary Statistics
+- Hypothesis Testing
+
+---
+
+## Let's take a look at some data
+
+### Boston House-Price Data
+
+The Boston house-price data of Harrison, D. and Rubinfeld, D.L. ['Hedonic prices and the demand for clean air',](https://www.sciencedirect.com/science/article/abs/pii/0095069678900062) J. Environ. Economics & Management, vol.5, 81-102, 1978. 
+
+The original data is archived at http://lib.stat.cmu.edu/datasets/boston
+
+[Scikit-learn](https://scikit-learn.org/) provides the data through one of its modules:
+
+```python
+from sklearn.datasets import load_boston
+import pandas as pd
+
+data = load_boston()
+X = data.data
+y = data.target
+df = pd.DataFrame(X, columns = data.feature_names)
+df["MEDV"] = y
+n, m = df.shape # n: number of rows, m: number of columns
+```
+.reference[https://scikit-learn.org/stable/datasets/index.html#boston-dataset and https://pandas.pydata.org/]
+
+---
+
+To see how the data looks like:
+
+```python
+print(df.head())
+```
+
+```terminal
+      CRIM    ZN  INDUS  CHAS    NOX  ...    TAX  PTRATIO       B  LSTAT  PRICE
+0  0.00632  18.0   2.31   0.0  0.538  ...  296.0     15.3  396.90   4.98   24.0
+1  0.02731   0.0   7.07   0.0  0.469  ...  242.0     17.8  396.90   9.14   21.6
+2  0.02729   0.0   7.07   0.0  0.469  ...  242.0     17.8  392.83   4.03   34.7
+3  0.03237   0.0   2.18   0.0  0.458  ...  222.0     18.7  394.63   2.94   33.4
+4  0.06905   0.0   2.18   0.0  0.458  ...  222.0     18.7  396.90   5.33   36.2
+```
+
+If you want to take a look at a specific column e.g. `RM` which stands for the average number of rooms per dwelling
+
+```python
+print(df["RM"].values[:100])
+```
+
+```terminal
+array([6.575 6.421 7.185 6.998 7.147 6.43  6.012 6.172 5.631 6.004 6.377 6.009
+       5.889 5.949 6.096 5.834 5.935 5.99  5.456 5.727 5.57  5.965 6.142 5.813
+       5.924 5.599 5.813 6.047 6.495 6.674 5.713 6.072 5.95  5.701 6.096 5.933
+       5.841 5.85  5.966 6.595 7.024 6.77  6.169 6.211 6.069 5.682 5.786 6.03
+       5.399 5.602 5.963 6.115 6.511 5.998 5.888 7.249 6.383 6.816 6.145 5.927
+       5.741 5.966 6.456 6.762 7.104 6.29  5.787 5.878 5.594 5.885 6.417 5.961
+       6.065 6.245 6.273 6.286 6.279 6.14  6.232 5.874 6.727 6.619 6.302 6.167
+       6.389 6.63  6.015 6.121 7.007 7.079 6.417 6.405 6.442 6.211 6.249 6.625
+       6.163 8.069 7.82  7.416])
+```
+
+---
+
+Not so easy to understand a long array of numbers. Another way is:
+
+```python
+col = "RM" # the number of rooms
+xmin = df[col].min()
+xmax = df[col].max()
+figsize = (3.6, 2.7)
+
+ax = df[col].hist(bins=10, figsize=figsize) # histogram
+ax.set_xlim(xmin, xmax) # setting the range of x-axis
+fig = ax.get_figure()
+fig.savefig("img/histogram_{}.png".format(col))
+ax.clear()
+```
+
+.center[![RM](img/histogram_RM.png)]
+
+.reference[https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.hist.html]
+
+
+---
+
+Visualizing a cumulative index
+
+```python
+col_cdf = "CDF_{}".format(col) # a new variable name
+n, m = df.shape # n: number of rows, m: number of columns
+df = df.sort_values(by=[col])
+df = df.reset_index() # reindex from the smallest RM to largest RM
+df[col_cdf] = df.index / n # normalize by n
+ax = df.plot.line(x=col, y=col_cdf, figsize=(3.6, 2.7))
+fig = ax.get_figure()
+fig.savefig("img/cdf_{}.png".format(col))
+ax.clear()
+```
+
+| histogram | cumulative index | 
+| --- | --- |
+| ![RM histogram](img/histogram_RM.png) | ![RM cdf](img/cdf_RM.png) |
+
+
+---
+
+class: center, middle
+
+Do you find any similarities?
+
+![normal dist](img/NormalDistribution_651.gif)
+
+Note that **only** two parameters are needed to characterize the normal distribution: mean (`mu`) and variance (`sigma2`).
+
+.reference[http://mathworld.wolfram.com/NormalDistribution.html]
+
+---
+
+Simulating the number of rooms in the data.
+
+```python
+mu = np.mean(df[col]) # mean
+sigma2 = np.var(df[col]) # variance
+sigma = np.sqrt(sigma2) # standard deviation
+
+col_simul = "{}_simul".format(col)
+df[col_simul] = sigma * np.random.randn(n) + mu # random samples
+ax = df[col_simul].hist(bins=10, figsize=(3.6,2.7))
+ax.set_xlim(xmin, xmax)
+fig = ax.get_figure()
+fig.savefig("img/histogram_{}.png".format(col_simul))
+ax.clear()
+```
+
+| actual | simulated | 
+| --- | --- |
+| ![RM actual](img/histogram_RM.png) | ![RM simulated](img/histogram_RM_simul.png) |
+
+---
+
+class: center, middle
+
+Why do we calculate mean and variance?
+
+Because these statistics can "summarize" the data.
+
+These are **summary statistics**.
+
+.reference[https://en.wikipedia.org/wiki/Summary_statistics]
+
+---
+
+What about other variables?
+
+MEDV: Median value of owner-occupied homes in $1000's
+
+```python
+col = "MEDV" # then repeat the same process
+```
+
+| actual | simulated | 
+| --- | --- |
+| ![RM actual](img/histogram_MEDV.png) | ![RM simulated](img/histogram_MEDV_simul.png) |
+
+
+The PRICE variable seems like [a mixture of two normal distributions](https://en.wikipedia.org/wiki/Mixture_model).
+Thus, the simulated histogram does not look similar with the original as well as in the RM variable.
+Note that [the normality assumption](https://en.wikipedia.org/wiki/Normality_test) does not hold always. 
+
+---
+
+class: center, middle
+
+Your friend, Bob, says 
+
+"Hey, I am from Boston. In Boston, houses near Charles River are more expensive than the others. You should put that in your model."
+
+How would you know Bob's statement is true?
+
+---
+
+Hypothesis Testing: TBD
+
+---
+
+Other distributions: TBD
+
+---
+
+class: center, middle
+
+## Questions?
 
 </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
     </script>
-    <script>
-      var slideshow = remark.create();
+        <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script type="text/javascript">
+      /*
+        Language: terminal console
+        Author: Josh Bode <joshbode@gmail.com>
+      */
+      hljs.registerLanguage('terminal', function() {
+        return {
+          contains: [
+            {
+              className: 'string',
+              begin: '^([\\w.]+)@([\\w.]+)'
+            },
+            {
+              className: 'constant',
+              begin: ' (.*) \\$ '
+            },
+            {
+              className: 'ansi',
+              begin: '<span style\\="([^"]+)">',
+              end: '<\\/span>'
+            }
+          ]
+        }
+      });
+      var slideshow = remark.create({
+        highlightStyle: 'monokai'
+      });
+
+      // extract the embedded styling from ansi spans
+      var highlighted = document.querySelectorAll("code.terminal span.hljs-ansi");
+      Array.prototype.forEach.call(highlighted, function(next) {
+        next.insertAdjacentHTML("beforebegin", next.textContent);
+        next.parentNode.removeChild(next);
+      });
     </script>
   </body>
 </html>
