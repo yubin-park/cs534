@@ -54,8 +54,8 @@ _Prerequisites:_
 
 | Date | Topic | Reference | Assignment |
 | ---- | ----- | --------- | ---------- |
-| 08/28 | [Introduction](prerequisite/slides.pdf) | . | [Homework #0](homework/hw0.md) |
-| 09/04 | Prerequisite - Statistics | . | . |
+| 08/28 | [Introduction](prerequisite/slides.html) | . | [Homework #0](homework/hw0.md) |
+| 09/04 | [Prerequisite - Statistics](prerequisite/slides.html#13) | . | . |
 | 09/09 | Linear Model - Regression (1)  | . | Homework #1 |
 | 09/11 | Linear Model - Regression (2) | . | . |
 | 09/16 | Linear Model - Classification | . | . |
