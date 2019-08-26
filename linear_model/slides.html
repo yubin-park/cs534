@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Linear Models</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .reference{
+      	font-size: 10px;
+      }
+      @page {
+        size: 908px 681px;
+        margin: 0;
+      }
+
+      @media print {
+        .remark-slide-scaler {
+          width: 100% !important;
+          height: 100% !important;
+          transform: scale(1) !important;
+          top: 0 !important;
+          left: 0 !important;
+        }
+      }
+
+      .figure img{
+        height: 550px;
+      }
+
+      .figure-300 img{
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Linear Models
+
+CS534 - Machine Learning
+
+Yubin Park, PhD
+
+---
+
+class: center, middle
+
+Like many problems in science and engineering,
+
+we have input `\( \mathbf{X} \)`, output `\( \mathbf{y} \)`, and function `\( f(\cdot) \)`.
+
+$$ \mathbf{y} = f(\mathbf{X}) $$
+
+---
+
+class: center, middle
+
+However, unlike many other problems,
+
+we do not know the function.
+
+We need to **reverse-engineer** the function 
+
+from the pairs of input and output.
+
+---
+class: center, middle
+
+.figure[![](img/curve_fitting.png)]
+
+.reference[https://xkcd.com/2048/]
+
+---
+
+## Notation Convention
+
+A lowercase letter is used for a scalar variable e.g. `\(y\)`
+
+A bold, lowercase letter is used for a vector variable e.g. `\(\mathbf{x}\)`
+
+A bold, uppercase letter is used for a matrix variable e.g. `\(\mathbf{X}\)`
+
+Unless otherwise specified, 
+- `\(y\)` represents a target (or response) variable
+- `\(\mathbf{x}\)` represents a feature (or input) vector 
+- `\((y, \mathbf{x})\)` represents a pair of a target variable and a feature vector
+- `\(\mathbf{X}\)` represents a matrix of feature vectors 
+- `\(\mathbf{x}_i\)` represents the `\(i\)`th sample of the feature matrix `\(\mathbf{X}\)`
+- NOTE: `\(\mathbf{X} = [\mathbf{x}_1, \mathbf{x}_2, \cdots, \mathbf{x}_n]^T \)`
+
+A dataset is a collection of samples: `\(\mathcal{D} = [(y_1, \mathbf{x}_1), \cdots, (y_n, \mathbf{x}_n) ]\)`
+
+A Greek letter is used for model parameters e.g. `\(\theta, \beta, \alpha, \gamma, \lambda \)`
+
+---
+
+## Loss Function
+
+Most of the time, it is impossible to reconstruct the original function - or, there is no way to know the truth.
+
+At best, we would want a function that works as "**close**" as possible to the observed data.
+
+For that, we need a loss function `\(\mathcal{L}(\cdot,\cdot)\)` that measures how "close" the approximated output (`\(\hat{\mathbf{y}}\)`) and real output (`\(\mathbf{y}\)`) are.
+
+$$ \mathcal{L}(\mathbf{y}, \hat{\mathbf{y}}) $$
+
+Now, we can write our problem statement in a succint mathematical form:
+
+$$ \min_{f} \mathcal{L}(\mathbf{y}, f(\mathbf{X})) $$
+
+We want to find a function that minimizes the loss function.
+
+---
+
+class: center, middle
+
+Although the problem may seem simple, it is not.
+
+The search space of such functions can be **infinitely** huge.
+
+However, the problem becomes relatively easier 
+
+if we constrain the search space.
+
+For example, what if the function has a form as follows:
+
+$$ y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_m x_m  $$
+
+---
+
+## Linear Model
+
+With a matrix notation, a [linear model](https://en.wikipedia.org/wiki/Linear_model) can be written as follows:
+
+$$ \mathbf{y} =  \mathbf{X} \mathbf{\beta} $$
+
+This is, perhaps, the most widely used and deeply studied model to this day.
+
+This often serves as the baseline model for all other models.
+
+Under this class of models, our problem reduces to:
+
+$$ \min_{\mathbf{\beta}} \mathcal{L}( \mathbf{y},  \mathbf{X}\mathbf{\beta}) $$
+
+Our job is to find the coefficients, `\(\mathbf{\beta}\)`
+
+---
+
+## Squared Loss 
+
+Consider a loss function as follows:
+
+$$   \mathcal{L}(\mathbf{y}, \mathbf{X}\mathbf{\beta}) =   (\mathbf{y} - \mathbf{X}\mathbf{\beta} )^T ( \mathbf{y} - \mathbf{X}\mathbf{\beta} )$$
+
+This is known as a squared loss function.
+
+Expanding the matrix notation, we get:
+
+$$ \mathcal{L}(\mathbf{y}, \mathbf{X}\mathbf{\beta}) \propto \frac{\sum_{i=1}^{n} (y_i - \mathbf{x}_i^T \mathbf{\beta})^2}{n} $$
+
+This term is sometimes called as the [Mean Squared Error (MSE)](https://en.wikipedia.org/wiki/Mean_squared_error).
+
+Note that `\(\epsilon_i=(y_i - \mathbf{x}_i^T \mathbf{\beta})\)` represents an error between the true and approximated functions. We took the mean of squared errors, hence, MSE.
+
+---
+
+## Probabilistic Perspective on MSE
+
+Assume that
+- Each sample is indenpent
+- Errors follow a normal distribution, `\(N(0, \sigma^2)\)`
+
+$$ \text{likelihood} = \prod_{i=1}^n \frac{1}{\sqrt{2\pi\sigma^2}}\exp{(-\frac{\epsilon_i^2}{2\sigma^2})} $$
+
+$$ \text{log-likelihood} \propto - \sum_{i=1}^{n} (y_i - \mathbf{x}_i^T \mathbf{\beta})^2 $$
+
+The squared loss has the same form as the **negative log-likelihood** of the model:
+
+$$ \mathbf{y} = \mathbf{X}\mathbf{\beta} + \mathbf{\epsilon} $$
+
+---
+
+## Least Squares
+
+The squared loss function is **differentiable**. It's time for some **calculus**.
+
+Differentiating with respect to `\(\mathbf{\beta}\)` gives:
+
+$$ -2 \mathbf{X}^T (\mathbf{y} - \mathbf{X}\mathbf{\beta}) = 0   $$
+
+Assuming (for the moment) that `\(\mathbf{X}\)` has full column rank, we have the unique solution:
+
+$$ \hat{\mathbf{\beta}} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}$$
+
+NOTE: Minimizng the sqaured loss function => minimizing the negative log-likelihood => maximizing the likelihood.
+
+The least squares solution is also the maximum-likelihood estimator of the model.
+
+---
+
+## Boston House-Price Data (revisted)
+
+```python
+data = load_boston()
+X = data.data
+y = data.target
+n, m = X.shape
+# adding the intercept to X
+X = np.append(np.ones(n).reshape(n, 1), X, axis=1)
+beta = np.dot(np.linalg.inv(np.dot(X.T, X)), np.dot(X.T, y))
+y_hat = np.dot(X, beta)
+```
+
+.center[.figure-300[![](img/boston_simplefitting.png)]]
+
+---
+
+## Inference (1)
+
+Suppose that our linear model is **true**. 
+
+Then, our next question is how reliable `\(\hat{\mathbf{\beta}}\)` is?
+
+Recall that our samples are perturbed by noise, hence `\(\text{Var}(y)=\sigma^2\)`.
+
+$$ \text{Var}(\hat{\mathbf{\beta}}) = \text{Var}((\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}) = (\mathbf{X}^T \mathbf{X})^{-1} \sigma^2 $$
+
+The coefficients follow a normal distribution, as it is a linear transformation of the normal noise, `\(\mathbf{\beta} = (\mathbf{X}^T\mathbf{X})^{-1}(\mathbf{y}-\mathbf{\epsilon})\)`. Thus,
+
+$$ \hat{\mathbf{\beta}} \sim N(\mathbf{\beta}, (\mathbf{X}^T \mathbf{X})^{-1} \sigma^2) $$
+
+The variane, `\(\sigma^2\)`, can be estimated from the samples as follows:
+
+$$ \hat{\sigma}^2 = \frac{1}{n-m-1} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 $$
+
+---
+
+## Inference (2)
+
+A test statistics to see if `\(\beta_j=0\)` (null hypothesis) or not, 
+
+$$ z_j = \frac{\hat{\beta}_j}{\hat{\sigma}\sqrt{\nu_j}} $$
+
+where `\(\nu_j\)` is the `\(j\)`th diagnoal element of `\((\mathbf{X}^T\mathbf{X})^{-1}\)`.
+
+This value, also known as `\(Z\)`-score, follows a `\(t\)` distribution with `\(n-m-1\)` degrees of freedom.
+
+However, with large enough samples, the distribution can be approximated with the standard normal distribution.
+
+Note that a large `\(Z\)`-score will reject the null hypothesis. 
+
+---
+
+class: center, middle
+
+.figure[![](img/800px-The_Normal_Distribution.svg.png)]
+
+.reference[https://en.wikipedia.org/wiki/File:The_Normal_Distribution.svg]
+
+
+---
+
+## Boston House-Price Data (again)
+
+```python
+from collections import Counter
+sigma = np.sqrt(np.sum(np.square(y - y_hat))/(n-m-1))
+XTX = np.linalg.inv(np.dot(X.T, X))
+nu = np.diag(XTX)
+z = beta/sigma/np.sqrt(nu)
+z_counter = Counter({k:np.abs(v) for k, v in zip(columns, z)})
+for k, v in z_counter.most_common():
+    print("{0:<12}{1:>5.2f}".format(k, v))
+```
+
+```bash
+LSTAT       10.35
+RM           9.12
+DIS          7.40
+PTRATIO      7.28
+Intercept    7.14
+NOX          4.65
+RAD          4.61
+B            3.47
+...
+```
+
+Are these important variables that affect the median house prices?
+
+---
+
+## Expanding Features
+
+Linear models can capture the **linear** relationship between the **features** and target.
+
+So far, we assumed the features are the same as the raw data.
+
+However, the features can be **engineered** and **expanded** in various ways:
+
+- Non-linear transformation, for example, `\( \log(x_j)\)`
+- Basis expansion, such as `\(x_j^2\)`, `\(x_j^3\)`
+- Interaction variables, such as `\(x_j x_k\)`
+- Dummy coding of categorical variables
+- Thresholding, for example, `\( I(x_j > 0) \)`
+
+In other words, linear models can capture the linear relationship the **engineered** features and target.
+Note that such relationships may have been non-linear in the original feature space.
+
+---
+
+## Poly Features for Boston House-Price Data (1)
+
+```python
+from sklearn.preprocessing import PolynomialFeatures
+poly = PolynomialFeatures(2, interaction_only=True)
+X = poly.fit_transform(data.data)
+n, m = X.shape
+y = data.target
+beta = np.dot(np.linalg.inv(np.dot(X.T, X) ), np.dot(X.T, y))
+y_hat = np.dot(X, beta)
+```
+
+.center[.figure-300[![](img/boston_poly2_interTrue.png)]]
+
+---
+
+## Poly Features for Boston House-Price Data (2)
+
+Let's be more ambitious. 
+
+We will include the second degree terms as well e.g. `\(x_j^2\)`.
+
+```python
+poly = PolynomialFeatures(2, interaction_only=False)
+```
+
+.center[.figure-300[![](img/boston_poly2_interFalse.png)]]
+
+---
+
+## Key Assumption of Linear Models
+
+When deriving the least sqaures solution, we assumed as follows:
+> "Assuming (for the moment) that `\(\mathbf{X}\)` has full column rank, ..."
+
+What if the assumption does not hold?
+
+```python
+XTX = np.linalg.inv(np.dot(X.T, X))
+nu = np.diag(XTX)
+print(nu)
+```
+
+```bash
+[ 2.09964081e+03  6.48910460e+00  9.82364219e-03  1.06748344e+00
+  5.55553419e+27  1.58789227e+03  1.00485565e+01  8.93892342e-03
+  4.60058666e+00  9.53811061e-01  3.03175549e-03  3.59185617e-01
+  9.61443244e-04  1.22190745e-01  1.90169867e-07  6.20707879e-03
+  3.30371457e-02  4.12300648e-02  1.15150963e-01  5.30005074e-04
+  1.78782515e-06  1.42266526e-03  5.73088861e-02  2.87256702e-04
+  ...
+```
+
+Note that `\(\nu_5=5.55553419e27\)`; extremely large value.
+
+---
+
+class: center, middle
+
+## Conundrum for Linear Models
+
+.pure-table.pure-table-bordered.pure-table-striped[
+|      | Basic Features | Expanded Features | 
+| ---- | --------------- | ------------------- |
+| Strength |  Simple and numerically stable | Increased predictive power | 
+| Weakness |  Predictive power is limited | Numerically unstable, can violate the key assumption |
+]
+
+Are there ways to have the best of both?
+
+---
+
+class: middle
+
+In fact, there are some nice alternatives.
+
+- Subset Selection Methods
+  - Forward Stepwise Regression
+  - Forward Stagewise Regression
+  - Least Angle Regression
+- Shrinkage Methods
+  - Ridge Regression
+  - Lasso Regression
+  - Elastic-Net Regression
+
+Note that there are many other methods. These are just the topics covered in this class.
+
+---
+
+class: center, middle
+
+## Questions?
+
+</textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+      /*
+        Language: terminal console
+        Author: Josh Bode <joshbode@gmail.com>
+      */
+      hljs.registerLanguage('terminal', function() {
+        return {
+          contains: [
+            {
+              className: 'string',
+              begin: '^([\\w.]+)@([\\w.]+)'
+            },
+            {
+              className: 'constant',
+              begin: ' (.*) \\$ '
+            },
+            {
+              className: 'ansi',
+              begin: '<span style\\="([^"]+)">',
+              end: '<\\/span>'
+            }
+          ]
+        }
+      });
+      var slideshow = remark.create({
+        highlightStyle: 'monokai'
+      });
+
+      // extract the embedded styling from ansi spans
+      var highlighted = document.querySelectorAll("code.terminal span.hljs-ansi");
+      Array.prototype.forEach.call(highlighted, function(next) {
+        next.insertAdjacentHTML("beforebegin", next.textContent);
+        next.parentNode.removeChild(next);
+      });
+
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+
+      MathJax.Hub.Configured();
+    </script>
+  </body>
+</html>
