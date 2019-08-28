@@ -480,7 +480,7 @@ Re: Forward "Stepwise" Regression,
 
 **Forward "Stagewise" Regression** remedies these concerns by taking a smaller step of adding a variable:
 
-1. Start with the intercept, `\(\hat{\mathbf{\beta}} = [\bar{\mathbf{y}}, 0, 0, ..., 0]^T\)`
+1. Start with the intercept, `\(\hat{\mathbf{\beta}} = [0, 0, ..., 0]^T\)`
 2. Calculate the residuals, `\(\mathbf{r} = \mathbf{y} - \hat{\mathbf{y}}\)`
 3. Find the variable, `\(\mathbf{x}_{(j)}\)`, that is most correlated with the residuals
 4. Calculate the simple linear regression coefficient of the residuals, `\(\gamma_j\)` for the selected variable
@@ -544,7 +544,7 @@ For more information, please see: https://web.stanford.edu/~hastie/TALKS/larstal
 
 The first few steps of the algorithm:
 
-1. Initiallize `\(\mathbf{r} = \mathbf{y} - \hat{\mathbf{y}}\)`
+1. Initiallize `\(\mathbf{r} = \mathbf{y} - \bar{\mathbf{y}}\)`
 1. Find the variable `\(\mathbf{x}_{(j)}\)` most correlated with `\(\mathbf{r}\)`
 1. Move `\(\beta_j\)` from 0 towards its least-squares coefficient `\(\langle\mathbf{x}_{(j)},\mathbf{r}\rangle\)`, until some other competitor `\(\mathbf{x}_{(k)}\)` has as much correlation with the current residual as does `\(\mathbf{x}_{(j)}\)`
 1. Re-calcaulte the residuals
