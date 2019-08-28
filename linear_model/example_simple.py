@@ -12,6 +12,8 @@ X = np.append(np.ones(n).reshape(n, 1), X, axis=1)
 y = data.target
 columns = ["Intercept"] + data.feature_names.tolist()
 beta = np.dot(np.linalg.inv(np.dot(X.T, X)), np.dot(X.T, y))
+for k, v in zip(columns, beta):
+    print("{0:<12}{1:>5.2f}".format(k, v))
 y_hat = np.dot(X, beta)
 df = pd.DataFrame({"y": y, "y_hat": y_hat})
 ax = df.plot.scatter(x="y_hat", y="y", figsize=figsize)
@@ -19,6 +21,7 @@ fig = ax.get_figure()
 fig.savefig("img/boston_simplefitting.png")
 ax.clear()
 
+print("----------")
 
 # z-score
 from collections import Counter
@@ -32,6 +35,8 @@ for k, v in z_counter.most_common():
 
 mse = np.sqrt(np.sum(np.square(y - y_hat))/n)
 print("MSE with linear features: {}".format(mse))
+
+print("----------")
 
 # feature expansion
 from sklearn.preprocessing import PolynomialFeatures
