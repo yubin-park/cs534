@@ -47,8 +47,13 @@ _Prerequisites:_
   1. [The Elements of Statistical Learning](https://web.stanford.edu/~hastie/ElemStatLearn/) by Trevor Hastie, Robert Tibshirani, and Jerome Friedman
   1. [A Course in Machine Learning](http://ciml.info/) by Hal Daum&#xE9; III
 - Office Hours
-  - 2:30 pm ET - 3:30 pm ET on Monday
-  - 12:00 pm ET - 1:00 pm ET on Wednesday
+  - 2:30 pm ET - 3:30 pm ET on Monday at [Kaldi's Coffee at the ESC](https://kaldiscoffee.com/pages/kaldis-coffee-at-the-esc)
+  - 12:00 pm ET - 1:00 pm ET on Wednesday at [Kaldi's Coffee at the ESC](https://kaldiscoffee.com/pages/kaldis-coffee-at-the-esc)
+- TA Office Hours
+  - Jing Ma
+    - 4:00 pm ET - 5:00 pm ET on Wednesday at [MSC Lab](http://www.mathcs.emory.edu/computinglab.php)
+  - Mani Sotoodeh
+    - 4:00 pm ET - 5:00 pm ET on Monday at [MSC Lab](http://www.mathcs.emory.edu/computinglab.php)
 
 ## Schedule
 
