@@ -62,7 +62,177 @@ Yubin Park, PhD
 
 class: center, middle
 
-TBD
+For a binary classification task
+
+i.e. `\( y \in \{0, 1\} \)`
+
+Is Squared Loss 
+
+a "good" loss function to use?
+
+
+---
+
+class: center, middle
+
+How about this?
+
+$$ y \in \\{ \text{Pos}, \text{Neg}\\} $$
+
+or
+
+$$ y \in \\{ \text{True}, \text{False}\\} $$
+
+---
+
+class: center, middle
+
+Such classes may be generated from a coin toss
+
+with a probability `\(p\)`.
+
+For example,
+
+$$ y = \begin{cases} 1, & \text{with probability } p \\\\ 0, & \text{with probability } (1-p) \end{cases} $$
+
+Or,
+
+$$ E[y] = p $$
+
+---
+
+class: center, middle
+
+Good news is that
+
+`\( p \)` is a real number,
+
+so we may be able to model `\( p \)` with `\( \mathbf{x}^T\mathbf{\beta} \)`.
+
+However, bad news is that `\( 0 \leq p \leq 1 \)`.
+
+Remember: `\( \mathbf{x}^T\mathbf{\beta} \)` can be "any" real number.
+
+---
+
+class: center, middle
+
+Here is a trick!
+
+$$ 0 \leq \frac{1}{1 + \exp(-\mathbf{x}^T\mathbf{\beta})} \leq 1 $$
+
+This is called a [logistic function](https://en.wikipedia.org/wiki/Logistic_function).
+
+So, I can estimate `\( p \)` with 
+
+a logistic-transformed linear model.
+
+And, this is called a [logistic regression](https://en.wikipedia.org/wiki/Logistic_regression).
+
+---
+
+class: center, middle
+
+The log-likelihood of a coin toss is:
+
+$$ y\log(p) + (1-y)\log(1-p) $$
+
+Extending this form with our logistic regression for `\(n\)` samples:
+
+$$\mathcal{L}(\mathbf{y}, \hat{\mathbf{y}}) = - \sum_{i=1}^{n} y_i\log(\frac{1}{1 + \exp(-\mathbf{x}_i^T\mathbf{\beta})}) + (1-y_i)\log(\frac{\exp(-\mathbf{x}_i^T\mathbf{\beta})}{1 + \exp(-\mathbf{x}_i^T\mathbf{\beta})})$$
+
+---
+
+class: center, middle
+
+With some arithmetic,
+
+$$ \mathcal{L}(\mathbf{y}, \hat{\mathbf{y}}) = - \sum_{i=1}^{n} y_i \mathbf{x}_i^T\mathbf{\beta} - \log(1+\exp(\mathbf{x}_i^T\mathbf{\beta}))$$
+
+`\(\hat{\mathbf{\beta}}\)` that minimizes the above loss function is the solution of:
+
+$$ \sum_{i=1}^{n} \mathbf{x}_i (y_i  - \frac{1}{1+\exp(-\mathbf{x}_i^T\mathbf{\beta})}) = 0$$
+
+---
+
+class: center, middle
+
+[Newton-Raphson algorithm](https://en.wikipedia.org/wiki/Newton%27s_method)
+
+.figure-300[![newton method](img/NewtonRaphson.png)]
+
+.reference[http://fourier.eng.hmc.edu/e176/lectures/NM/node20.html]
+
+---
+
+class: center, middle
+
+Let `\( \mathbf{p} = \frac{1}{1+\exp(-\mathbf{X}^T\mathbf{\beta}^\text{old})} \)` and `\( \mathbf{W} = \mathbf{p}\mathbf{p}^T \)`
+
+then
+
+$$ \mathbf{\beta}^{\text{new}} = \mathbf{\beta}^{\text{old}} + (\mathbf{X}^T\mathbf{W}\mathbf{X})^{-1} \mathbf{X}^T (\mathbf{y} - \mathbf{p})$$
+
+
+This algorithm is known as
+
+[Iterative Reweighted Least Squares (IRLS)](https://en.wikipedia.org/wiki/Iteratively_reweighted_least_squares).
+
+---
+
+## Log-odds
+
+For a binary classification problem,
+
+
+
+---
+
+## Inference
+
+---
+
+## Probabilistic Perspective
+
+Logistic noise
+
+---
+
+## Other Approaches for Binary Classification
+
+Probit Regression
+
+LDA
+
+---
+
+## Regularized Logistic Regression
+
+LARS difficult
+
+Coordinate Descent
+
+
+---
+
+## Taylor Approximation
+
+
+GLMNET
+
+---
+
+class: center, middle
+
+## Generalized Linear Models
+
+---
+
+Softmax
+
+Poison
+
+Survival Model
 
 ---
 

@@ -1,6 +1,6 @@
 # Homework \#1
 
-Due mm/dd
+Due 09/23
 
 ## Submission Instruction
 
@@ -8,7 +8,7 @@ In this homework, you will implement two machine learning algorithms: **Ridge Re
 For this homework, you need to download [`hw1_template.py`](hw1_template.py) (homework template) and fill out the empty classes in the template.
 
 The homework must e submitted electronically on Canvas as a single submission.
-The submission will be a single Python file named as `{firstname}_{lastname}_hw1.py`.
+The submission will be a single Python file named as `hw1.py`.
 TA will run automatic test scripts to grade the submissions. Please note that:
 - If your homework does not adhere to the naming convention, you will receive zero points for the homework.
 - If your source code is flagged for being too similar to other submissions, you will be automatically reported for cheating. We will assess the software similarity with [MOSS](https://theory.stanford.edu/~aiken/moss/).
@@ -57,7 +57,7 @@ If the coefficients are valid, then you will receive 20 points more.
 An example test script is as follows:
 
 ```python
-from {firstname_lastname_hw1} import Ridge
+from hw1 import Ridge
 
 coef_prior = ... # TA will pick a random vector 
 X, y = ... # TA will choose a dataset for grading
@@ -117,7 +117,7 @@ An example of such test scripts is as follows:
 
 
 ```python
-from {firstname_lastname_hw1} import ForwardStagewise
+from hw1 import ForwardStagewise
 
 cannot_link = ...
 X, y = ... 
