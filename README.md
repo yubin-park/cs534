@@ -64,7 +64,7 @@ _Prerequisites:_
 | 09/09 | [Linear Model - Regression (1)](linear_model/slides_reg.html)  | ESL Chapter 3 | [Homework #1](homework/hw1.md) |
 | 09/11 | [Linear Model - Regression (2)](linear_model/slides_reg.html) | ESL Chapter 3 | . |
 | 09/16 | [Linear Model - Classification](linear_model/slides_cls.html) | . | . |
-| 09/18 | Linear Model - Other Distributions | . | . |
+| 09/18 | [Linear Model - Other Distributions](linear_model/slides_cls.html) | . | . |
 | 09/23 | Decision Tree | . | Homework #2 |
 | 09/25 | Boosting | . | . |
 | 09/30 | Bootstrap | . | . |

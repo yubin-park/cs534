@@ -387,10 +387,21 @@ $$ \sum\_{i=1}^{n} y_i \mathbf{x}_i^T\mathbf{\beta} - \exp(\mathbf{x}_i^T\mathbf
 
 ## Generalized Linear Model
 
-$$ E[y] = g^{-1}(\mathbf{x}^T\mathbf{\beta})$$
+$$ E[y] = \mu = g^{-1}(\mathbf{x}^T\mathbf{\beta})$$
 
 where `\(g(\cdot)\)` is a link function.
 
+.pure-table.pure-table-bordered.pure-table-striped[
+| Distribution | Use Case | Link | Mean Function |
+| ------------ | -------- | ---- | ------------- |
+| Normal       | Linear Response | `\(\mathbf{X}\mathbf{\beta}=\mu\)` | `\(\mu=\mathbf{X}\mathbf{\beta}\)`|
+| Poisson | Count Response | `\(\mathbf{X}\mathbf{\beta}=\log(\mu)\)` | `\(\mu=\exp(\mathbf{X}\mathbf{\beta})\)`|
+| Categorical | K Response | `\(\mathbf{X}\mathbf{\beta}=\log(\frac{\mu}{1-\mu})\)` | `\(\mu=\frac{1}{1+\exp(-\mathbf{X}\mathbf{\beta})}\)`|
+]
+
+The maximum likelihood estimator for `\(\mathbf{\beta}\)` can be found using IRLS or Coordinate Descent.
+
+Please read "[GLMNET Vignette](https://web.stanford.edu/~hastie/glmnet/glmnet_beta.html)" for more details.
 
 ---
 
