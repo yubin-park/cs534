@@ -63,20 +63,20 @@ _Prerequisites:_
 | 09/04 | [Prerequisite - Statistics](prerequisite/slides.html#13) | . | . |
 | 09/09 | [Linear Model - Regression (1)](linear_model/slides_reg.html)  | ESL Chapter 3 | [Homework #1](homework/hw1.md) |
 | 09/11 | [Linear Model - Regression (2)](linear_model/slides_reg.html) | ESL Chapter 3 | . |
-| 09/16 | [Linear Model - Classification](linear_model/slides_cls.html) | . | . |
-| 09/18 | [Linear Model - Other Distributions](linear_model/slides_cls.html) | . | . |
-| 09/23 | Decision Tree | . | Homework #2 |
-| 09/25 | Boosting | . | . |
-| 09/30 | Bootstrap | . | . |
-| 10/02 | Random Forests | . | Homework #3 |
-| 10/07 | Bias-Variance Tradeoff | . | . |
-| 10/09 | Evaluation Metrics | . | . |
-| 10/16 | Evaluation Strategies | . | . |
+| 09/16 | [Linear Model - Classification](linear_model/slides_cls.html) | ESL Chapter 4 | . |
+| 09/18 | [Linear Model - Other Distributions](linear_model/slides_cls.html) | ESL Chapter 4 and [GLMNET](https://web.stanford.edu/~hastie/glmnet/glmnet_beta.html) | . |
+| 09/23 | Evaluation Metrics | . | [Homework #2](homework/hw2.md) |
+| 09/25 | Evaluation Strategies | . | . |
+| 09/30 | Bias-Variance Tradeoff | . | . |
+| 10/02 | Decision Tree | . | Homework #3 |
+| 10/07 | Boosting | . | . |
+| 10/09 | Bootstrap | . | . |
+| 10/16 | Random Forests | . | Homework #4 |
 | 10/21 | _Midterm Exam_ | . | . |
-| 10/23 | Nearest Neighbors | . | Homework #4 |
-| 10/28 | Dimensionality Reduction (1) | . | . |
+| 10/23 | Nearest Neighbors | . | . |
+| 10/28 | Dimensionality Reduction (1) | . | Homework #5 |
 | 10/30 | Dimensionality Reduction (2) | . | . |
-| 11/04 | Convex Optimization | . | Homework #5 |
+| 11/04 | Convex Optimization | . | . |
 | 11/06 | _Project Elevator Pitch_ | . | . |
 | 11/11 | Support Vector Machine | . | . |
 | 11/13 | Neural Networks | . | . |
