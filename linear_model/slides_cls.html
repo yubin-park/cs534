@@ -167,7 +167,7 @@ class: center, middle
 
 class: center, middle
 
-Let `\( \mathbf{p} = \frac{1}{1+\exp(-\mathbf{X}^T\mathbf{\beta}^\text{old})} \)` and `\( \mathbf{W} = \mathbf{p}\mathbf{p}^T \)`
+Let `\( \mathbf{p} = \frac{1}{1+\exp(-\mathbf{X}^T\mathbf{\beta}^\text{old})} \)` and `\( \mathbf{W} = diag(\mathbf{p}(1-\mathbf{p})) \)`
 
 then
 
@@ -180,59 +180,196 @@ This algorithm is known as
 
 ---
 
-## Log-odds
+## IRLS (1)
 
-For a binary classification problem,
+```python
+data = load_breast_cancer()
+...
 
+def loss(y, X, beta):
+    ll = y * np.dot(X, beta) - np.log(1 + np.exp(np.dot(X, beta)))
+    return -np.sum(ll)
+
+beta = np.zeros(m+1)
+loss_lst = []
+loss_lst.append(loss(y, X, beta))
+for i in range(30):
+    p = expit(np.dot(X, beta))
+    W = np.diag(p * (1-p))
+    XWXinv = np.linalg.inv(np.dot(np.dot(X.T, W), X))
+    beta = beta + np.dot(XWXinv, np.dot(X.T, y-p))
+    loss_lst.append(loss(y, X, beta))
+print(loss_lst)
+```
+
+```bash
+[394.40074573860886, 134.65976155779023, 77.34464088185803, 50.213695232241705, 
+36.03778398459961, 27.9193029909705, 21.317288480218703, 17.693240538595294, 
+15.486294065947352, 13.69064323793789, 11.138891617659137, 8.972106451009168, 
+6.815535841033875, inf, inf, inf, inf, inf, inf, inf, inf, ...]
+```
+
+---
+
+## IRLS (2)
+
+The issues with `\(\lim_{x \to 0}\log x\)` and `\(\lim_{x \to 0} \frac{1}{x}\)`.
+
+A heuristic fix:
+
+```python
+eps = 1e-5
+beta = np.zeros(m+1)
+loss_lst = []
+loss_lst.append(loss(y, X, beta))
+for i in range(30):
+    p = np.clip(expit(np.dot(X, beta)), eps, 1-eps) # NOTE: np.clip()
+    W = np.diag(p * (1-p))
+    XWXinv = np.linalg.inv(np.dot(np.dot(X.T, W), X))
+    beta = beta + np.dot(XWXinv, np.dot(X.T, y-p))
+    loss_lst.append(loss(y, X, beta))
+print(loss_lst)
+```
+
+```bash
+[394.40074573860886, 134.65976155779023, 77.34464088185803, 50.213695232241705, 
+36.037792317633716, 27.921357429458112, 21.363127719004243, 17.7941874322518, 
+15.712620105268597, 14.313956463333824, 13.059598232213126, 12.127395626682928, 
+11.44752822203149, 10.928370872078371, 10.516914209497251, 10.18009512545763, 
+9.89655605214852, 9.652059524611392, 9.436848965755562, ...]
+```
 
 
 ---
 
-## Inference
+## Log-odds
+
+For a binary classification problem,
+
+$$ \log \frac{p_i}{1-p_i} = \mathbf{x}_i^T \mathbf{\beta}$$
+
+The left-hand term is called the log-odds or [logit](https://en.wikipedia.org/wiki/Logit) function. 
+
+$$ \text{logit}(p) = \log \frac{p}{1-p} $$
+
+$$ \text{logit}^{-1}(q) = \frac{1}{1 + \exp(-q)} $$
+
+Logistic regression can be viewed as a linear model for the log-odds target.
+
+---
+
+## Coefficients
+
+A central limit theorem and the least sqaure update form can be used to derive:
+
+$$ \hat{\mathbf{\beta}} \sim N(\mathbf{\beta}, (\mathbf{X}^T\mathbf{W}\mathbf{X})^{-1})$$
+
+In logistic regression, the regression coefficient represents the change in the log-odds.
+
+
+$$ \exp(\beta_j) = \frac{\text{Pr}(y=1 | x_j=1)/\text{Pr}(y=0 | x_j=1)}{\text{Pr}(y=1 | x_j=0)/\text{Pr}(y=0 | x_j=0)}$$
+
+This is called as [Odds-ratio (OR)](https://en.wikipedia.org/wiki/Odds_ratio). In other words,
+
+$$ \exp(\beta_j) =  \frac{\text{Odds of }y=1\text{ with }x_j=1}{\text{Odds of }y=1\text{ with }x_j=0}$$
+
 
 ---
 
 ## Probabilistic Perspective
 
-Logistic noise
+
+$$ y = \begin{cases} 1, & \text{if } \mathbf{x}\mathbf{\beta} + \epsilon > 0 \\\\ 0, & \text{otherwise}\end{cases} $$
+
+$$ \text{Pr}(\epsilon > s) = \frac{1}{1 + \exp(-s)} $$
+
+The noise is from the standard [logistic distribution](https://en.wikipedia.org/wiki/Logistic_distribution). To see how this works,
+
+$$ \text{Pr}(\mathbf{x}\mathbf{\beta} + \epsilon >  0) = 1 - \text{Pr}(\epsilon < - \mathbf{x}\mathbf{\beta})$$
+
+$$ \text{Pr}(y = 1) = \frac{1}{1 + \exp( - \mathbf{x}\mathbf{\beta})}$$
 
 ---
 
 ## Other Approaches for Binary Classification
 
-Probit Regression
+$$ y = \begin{cases} 1, & \text{if } \mathbf{x}\mathbf{\beta} + \epsilon > 0 \\\\ 0, & \text{otherwise}\end{cases} $$
 
-LDA
+$$ \epsilon \sim N(0, 1) $$
+
+This model is known as [Probit Regression](https://en.wikipedia.org/wiki/Probit_model).
+
+If the cumulative distribution of the noise follows the standard [Gumbel distribution](https://en.wikipedia.org/wiki/Gumbel_distribution)
+
+$$ \text{Pr}(\epsilon > s) = \exp(-\exp(-s))$$
+
+then the model is known as the [complementary log-log regression](https://data.princeton.edu/wws509/notes/c3s7).
+
+Note that a logistic regression is just **one way** to model a binary classification problem.
 
 ---
 
 ## Regularized Logistic Regression
 
-LARS difficult
+Elastic-Net:
 
-Coordinate Descent
+$$ \mathcal{L}(\mathbf{y}, \hat{\mathbf{y}}) = - \sum_{i=1}^{n} [y_i \mathbf{x}_i^T\mathbf{\beta} - \log(1+\exp(\mathbf{x}_i^T\mathbf{\beta}))] + \lambda ((1-\alpha) \mathbf{\beta}^T\mathbf{\beta} + \alpha | \mathbf{\beta} |)$$
 
+Ridge:
+
+$$ \mathcal{L}(\mathbf{y}, \hat{\mathbf{y}}) = - \sum_{i=1}^{n} [y_i \mathbf{x}_i^T\mathbf{\beta} - \log(1+\exp(\mathbf{x}_i^T\mathbf{\beta}))] + \lambda \mathbf{\beta}^T\mathbf{\beta} $$
+
+Lasso:
+
+$$ \mathcal{L}(\mathbf{y}, \hat{\mathbf{y}}) = - \sum_{i=1}^{n} [y_i \mathbf{x}_i^T\mathbf{\beta} - \log(1+\exp(\mathbf{x}_i^T\mathbf{\beta}))] + \lambda | \mathbf{\beta} | $$
 
 ---
 
 ## Taylor Approximation
 
+Applying the quadratic [Taylor approximation](https://en.wikipedia.org/wiki/Taylor_series) to the logistic loss part,
 
-GLMNET
+$$ \mathcal{L}(\mathbf{y}, \hat{\mathbf{y}}) \approx \sum p_i (1-p_i)(\mathbf{x}_i^T\mathbf{\beta} - \frac{y_i - p_i}{p_i (1-p_i)} - \mathbf{x}_i^T \mathbf{\beta}^{\text{old}})^2 + \lambda |\mathbf{\beta}|$$
+
+where `\( p_i = \frac{1}{1 + \exp(-\mathbf{x}_i^T\mathbf{\beta}^{\text{old}})}\)`.
+
+Let `\( z_i = \frac{y_i - p_i}{p_i (1-p_i)} + \mathbf{x}_i^T \mathbf{\beta}^{\text{old}} \)` and `\( w_i = p_i (1-p_i) \)`, then
+
+$$ \sum w_i (z_i - \mathbf{x}_i^T \mathbf{\beta})^2 + \lambda | \mathbf{\beta }| $$ 
+
+This form is the same as a weighted Lasso loss function, which you can solve with a [proximal gradient method](https://en.wikipedia.org/wiki/Proximal_gradient_methods_for_learning).
+
+You can extend this result to the Elastic-Net penalty - note that you can modify the loss function of an Elastic-Net regression to be equivalent to a lasso regression.
 
 ---
 
-class: center, middle
+class: middle
 
 ## Generalized Linear Models
 
+Multi-class and ordinal targets
+
 ---
+
+## Multi-class Target
 
 Softmax
 
+
+---
+
+## Ordinal Target
+
 Poison
 
-Survival Model
+---
+
+## Link Function
+
+---
+
+## Generalized Linear Model
+
 
 ---
 
