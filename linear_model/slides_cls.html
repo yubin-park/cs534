@@ -347,28 +347,49 @@ class: middle
 
 ## Generalized Linear Models
 
-Multi-class and ordinal targets
+Multi-class and count targets
 
 ---
 
 ## Multi-class Target
 
-Softmax
+Consider modeling `\( y \in \{ \text{Red}, \text{Green}, \text{Yellow}\} \)`.
 
+How about
+
+$$ \text{Pr}(y = \text{Red}) = \frac{\exp(\mathbf{x}^T\mathbf{\beta}^{R})}{\exp(\mathbf{x}^T\mathbf{\beta}^{R}) + \exp(\mathbf{x}^T\mathbf{\beta}^{G})+ \exp(\mathbf{x}^T\mathbf{\beta}^{Y})}$$
+
+The above probability distribution is known as a [softmax function](https://en.wikipedia.org/wiki/Softmax_function).
+
+The log-likelihood of this model is:
+
+$$   \sum\_{i=1}^{n} \sum_{k=\\{R, G, Y\\}} I(y_i = k) \mathbf{x}_i^T\mathbf{\beta}^k - \log(1+\exp(\mathbf{x}_i^T\mathbf{\beta}^k)) $$
 
 ---
 
-## Ordinal Target
+## Count Target
 
-Poison
+Consider modeling `\( y \in \{ 0, 1, 2, 3, ...\} \)`.
 
----
+How about
 
-## Link Function
+$$ \text{Pr}(y = k) = \frac{1}{k!} \exp(k \mathbf{x}^T\mathbf{\beta}) \exp(-\exp(\mathbf{x}^T\mathbf{\beta}))$$
+
+If we let `\(\lambda = \exp(\mathbf{x}\mathbf{\beta})\)`, then
+
+$$ \text{Pr}(y = k) = \frac{1}{k!} \lambda^k \exp(-\lambda) $$
+
+This distribution is known as [Poisson distribution](https://en.wikipedia.org/wiki/Poisson_distribution). The log-likelihood of this model is:
+
+$$ \sum\_{i=1}^{n} y_i \mathbf{x}_i^T\mathbf{\beta} - \exp(\mathbf{x}_i^T\mathbf{\beta})$$
 
 ---
 
 ## Generalized Linear Model
+
+$$ E[y] = g^{-1}(\mathbf{x}^T\mathbf{\beta})$$
+
+where `\(g(\cdot)\)` is a link function.
 
 
 ---
