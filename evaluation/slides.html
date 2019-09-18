@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Eval</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .reference{
+      	font-size: 10px;
+      }
+      .smaller-font { font-size:14px } 
+      @page {
+        size: 908px 681px;
+        margin: 0;
+      }
+
+      @media print {
+        .remark-slide-scaler {
+          width: 100% !important;
+          height: 100% !important;
+          transform: scale(1) !important;
+          top: 0 !important;
+          left: 0 !important;
+        }
+      }
+
+      .figure img{
+        height: 550px;
+      }
+
+      .figure-250 img{
+        height: 250px;
+      }
+
+      .figure-300 img{
+        height: 300px;
+      }
+
+      .figure-350 img{
+        height: 350px;
+      }
+
+      .figure-w650 img{
+        width: 650px;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Evaluation Metrics & Strategies
+
+CS534 - Machine Learning
+
+Yubin Park, PhD
+
+---
+
+class: center, middle
+
+
+We choose a loss function to fit a model.
+
+We choose an evaluation metric to evaluate the model.
+
+These two can be sometimes different.
+
+Loss Function `\(\neq\)` Evaluation Metric
+
+---
+
+## Evaluating Regression Tasks
+
+[Mean Squared Error (MSE)](https://en.wikipedia.org/wiki/Mean_squared_error) = `\( \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 \)`
+
+[Root Mean Sqaured Error (RMSE)](https://en.wikipedia.org/wiki/Root-mean-square_deviation) = `\(\sqrt{\text{MSE}}\)`
+
+[R-squared (or the coefficient of determination)](https://en.wikipedia.org/wiki/Coefficient_of_determination) = `\(1 - \frac{\text{MSE}}{\text{Var}(y)}\)`
+
+[Mean Absolute Error (MAE)](https://en.wikipedia.org/wiki/Mean_absolute_error) = `\(\frac{1}{n} \sum_{i=1}^{n} | y_i - \hat{y}_i |\)`
+
+[Mean Absolute Percentage Error (MAPE)](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error) = `\(\frac{100}{n} \sum_{i=1}^{n} \frac{| y_i - \hat{y}_i |}{|y_i|}\)`
+
+[Median Absolute Error (MedAE)](https://scikit-learn.org/stable/modules/model_evaluation.html#median-absolute-error) = `\(\text{median}(|y_i - \hat{y}_i|)\)`
+
+[Mean Squared Logarithmic Error (MSLE)](https://scikit-learn.org/stable/modules/model_evaluation.html#mean-squared-logarithmic-error) = `\(\frac{1}{n} \sum_{i=1}^{n} (\log(1+y_i) - \log(1+\hat{y}_i))\)`
+
+---
+
+## Regression Evaluation Example
+
+```python
+>>> from sklearn.metrics import mean_squared_error
+>>> y_true = [3, -0.5, 2, 7]
+>>> y_pred = [2.5, 0.0, 2, 8]
+>>> mean_squared_error(y_true, y_pred)
+0.375
+```
+.reference[https://scikit-learn.org/stable/modules/model_evaluation.html#mean-squared-error]
+
+```python
+>>> from sklearn.metrics import mean_squared_log_error
+>>> y_true = [3, 5, 2.5, 7]
+>>> y_pred = [2.5, 5, 4, 8]
+>>> mean_squared_log_error(y_true, y_pred)  
+0.039...
+```
+.reference[https://scikit-learn.org/stable/modules/model_evaluation.html#mean-squared-logarithmic-error]
+
+---
+
+## Evaluating Classification Tasks
+ 
+[Confusion Matrix](https://en.wikipedia.org/wiki/Confusion_matrix) is the basis for evaluating classification algorithms.
+
+.pure-table.pure-table-bordered.pure-table-striped[
+|      | Predicted 0 (or Negative) | Predicted 1 (or Positive) | 
+| ---- | --------------- | ------------------- |
+| Actual 0 (or Negative, N) |  True Negative (TN) | False Positive (FP), Type I Error | 
+| Actual 1 (or Positive, P) |  False Negative (FN), Type II Error | True Positive (TP) |
+]
+
+Accuracy = `\( \frac{TP + TN}{ P + N}\)`
+
+True Positive Rate (TPR) = `\( \frac{TP}{ TP + FN}\)`
+
+False Positive Rate (FPR) = `\( \frac{FP}{ FP + TN}\)`
+
+Positive Predictive Value (PPV, or Precision) = `\( \frac{TP}{TP + FP}\)`
+
+---
+
+## ROC Curve and Area Under the Curve (AUROC)
+
+.center[.figure-350[![ROC](img/Roccurves.png)]]
+
+.center[.reference[By BOR at the English language Wikipedia, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=10714489]]
+
+---
+
+class: center, middle
+
+If a model is good, **in general**,
+
+AUROC should be above 0.5 and plausibly above 0.7-ish.
+
+Higher AUROCs, in general, imply better models.
+
+However, in practice,
+
+lower AUROC models may be preferred depending on 
+
+the **shapes** of the ROC curves.
+
+
+---
+
+## Precision and Recall
+
+Precision = `\(\frac{TP}{TP + FP}\)` and Recall = `\(\frac{TP}{TP + FN}\)`
+
+.center[.figure-350[![ROCPR](img/rocpr.png)]]
+
+.center[.reference[J. Davis and M. Goadrich, The Relationship Between Precision-Recall and ROC Curves. ICML 2006. https://www.biostat.wisc.edu/~page/rocpr.pdf]]
+
+---
+
+## Brier Score
+
+ROC and PR curves only care about the rankings of the predicted values.
+
+For example, if the target is `[0, 1]`, then predicted values of `[0.1, 0.9]` and `[0.4, 0.7]` would be the same in ROC and PR.
+
+On the other hand, [Brier Score](https://en.wikipedia.org/wiki/Brier_score) measures the accuracy of **probabilistic** predictions. 
+
+For a binary classification problem where `\(y = \{0,1\}\)` and `\(\hat{y} \in [0, 1]\)`, 
+
+$$\text{Brier Score (BS)} = \frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2$$
+
+i.e. MSE applied to a binary classification task
+
+---
+
+class: center, middle
+
+Now we know **what metrics** to measure.
+
+But, do we know **where/how** to apply?
+
+---
+
+class: center, middle
+
+Why are we training a model?
+
+**To Predict Outcomes**
+
+(for the inputs you haven't seen yet)
+
+---
+
+## Train and Test
+
+By definition, you cannot measure the performance on the **unseen** data. 
+
+However, you can simulate such performance assuming that the **unseen** data is not much different from the **data we already have**.
+
+Randomly split the data into two groups:
+- **Train set** for mimicking the data that we already have
+- **Test set** for mimicking the unseen data that we will have in the future
+
+.center[.figure-w650[![traintest](img/traintest.png)]]
+
+Common split ratio: 70% for Train and 30% for Test
+
+You use the Test set only for measuring the evaluation metric.
+
+You **DO NOT** touch the Test set while training.
+
+---
+
+## K-Fold Cross-Validation
+
+One train/test split gives one estimate for the evaluation metric of interest. Can we trust the value?
+
+Can we get more estimates so that we can calculate variances of such estimates? 
+
+Randomly split data into `\(k\)` partitions, and use one of the partition as a Test set, and then iterate over the other `\(k-1\)` Test sets.
+
+.center[.figure-250[![kfold](img/5folds.png)]]
+
+---
+
+## Monte Carlo Cross-Validation
+
+The maximum number of estimates for K-Fold CV is K. For example, a 5-Fold CV will generate 5 evaluation metrics. Is 5 enough?
+
+.center[.figure-250[![kfold](img/montecarlo.png)]]
+
+Doing a random sub-sampling multiple times.
+
+Test sets may have some overlapping data points between iterations.
+
+Can iterate as many as we want.
+
+---
+
+class: center, middle
+
+Cross-validated performances should be 
+
+**indicative** of real performance.
+
+We can choose the **best** model
+
+among our list of models based on the CV results.
+
+---
+
+class: center, middle
+
+**A QUICK NOTE**
+
+A model has two types of parameters.
+
+Regular parameters (we just call "parameters"), and
+
+Hyperparameters, which we cannot estimate during training,
+
+such as `\(\lambda, \alpha\)` in Elastic-Net.
+
+If models have different hyperparameters,
+
+for now, let's just treat them **different** models.
+
+---
+
+class: center, middle
+
+Example of Choosing the best `\(\lambda\)` in Elastic-Net
+
+.figure-350[![enetcv](img/enet-cv.png)]
+
+.reference[https://web.stanford.edu/~hastie/glmnet/glmnet_beta.html]
+
+---
+
+class: center, middle
+
+## Questions?
+
+</textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+      /*
+        Language: terminal console
+        Author: Josh Bode <joshbode@gmail.com>
+      */
+      hljs.registerLanguage('terminal', function() {
+        return {
+          contains: [
+            {
+              className: 'string',
+              begin: '^([\\w.]+)@([\\w.]+)'
+            },
+            {
+              className: 'constant',
+              begin: ' (.*) \\$ '
+            },
+            {
+              className: 'ansi',
+              begin: '<span style\\="([^"]+)">',
+              end: '<\\/span>'
+            }
+          ]
+        }
+      });
+      var slideshow = remark.create({
+        highlightStyle: 'monokai'
+      });
+
+      // extract the embedded styling from ansi spans
+      var highlighted = document.querySelectorAll("code.terminal span.hljs-ansi");
+      Array.prototype.forEach.call(highlighted, function(next) {
+        next.insertAdjacentHTML("beforebegin", next.textContent);
+        next.parentNode.removeChild(next);
+      });
+
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+
+      MathJax.Hub.Configured();
+    </script>
+  </body>
+</html>

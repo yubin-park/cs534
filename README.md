@@ -65,8 +65,8 @@ _Prerequisites:_
 | 09/11 | [Linear Model - Regression (2)](linear_model/slides_reg.html) | ESL Chapter 3 | . |
 | 09/16 | [Linear Model - Classification](linear_model/slides_cls.html) | ESL Chapter 4 | . |
 | 09/18 | [Linear Model - Other Distributions](linear_model/slides_cls.html) | ESL Chapter 4 and [GLMNET](https://web.stanford.edu/~hastie/glmnet/glmnet_beta.html) | . |
-| 09/23 | Evaluation Metrics | . | [Homework #2](homework/hw2.md) |
-| 09/25 | Evaluation Strategies | . | . |
+| 09/23 | [Evaluation Metrics](evaluation/slides.html) | . | [Homework #2](homework/hw2.md) |
+| 09/25 | [Evaluation Strategies](evaluation/slides.html) | . | . |
 | 09/30 | Bias-Variance Tradeoff | . | . |
 | 10/02 | Decision Tree | . | Homework #3 |
 | 10/07 | Boosting | . | . |
