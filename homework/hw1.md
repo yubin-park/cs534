@@ -7,7 +7,7 @@ Due 09/23
 In this homework, you will implement two machine learning algorithms: **Ridge Regression** and **Forward-Stagewise Regression** with a little twist. 
 For this homework, you need to download [`hw1_template.py`](hw1_template.py) (homework template) and fill out the empty classes in the template.
 
-The homework must e submitted electronically on Canvas as a single submission.
+The homework must be submitted electronically on Canvas as a single submission.
 The submission will be a single Python file named as `hw1.py`.
 TA will run automatic test scripts to grade the submissions. Please note that:
 - If your homework does not adhere to the naming convention, you will receive zero points for the homework.
