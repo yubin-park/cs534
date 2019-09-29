@@ -1,6 +1,6 @@
 # Homework \#2
 
-Due 10/02
+Due 10/07
 
 ## Submission Instruction
 

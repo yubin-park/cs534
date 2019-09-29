@@ -48,7 +48,7 @@ _Prerequisites:_
   1. [A Course in Machine Learning](http://ciml.info/) by Hal Daum&#xE9; III
 - Office Hours
   - 2:30 pm ET - 3:30 pm ET on Monday at [Kaldi's Coffee at the ESC](https://kaldiscoffee.com/pages/kaldis-coffee-at-the-esc)
-  - 12:00 pm ET - 1:00 pm ET on Wednesday at [Kaldi's Coffee at the ESC](https://kaldiscoffee.com/pages/kaldis-coffee-at-the-esc)
+  - 3:00 pm ET - 4:00 pm ET on Wednesday at [Kaldi's Coffee at the ESC](https://kaldiscoffee.com/pages/kaldis-coffee-at-the-esc)
 - TA Office Hours
   - Jing Ma
     - 4:00 pm ET - 5:00 pm ET on Wednesday at [MSC Lab](http://www.mathcs.emory.edu/computinglab.php)
@@ -67,7 +67,7 @@ _Prerequisites:_
 | 09/18 | [Linear Model - Other Distributions](linear_model/slides_cls.html) | ESL Chapter 4 and [GLMNET](https://web.stanford.edu/~hastie/glmnet/glmnet_beta.html) | . |
 | 09/23 | [Evaluation Metrics](evaluation/slides.html) | . | [Homework #2](homework/hw2.md) |
 | 09/25 | [Evaluation Strategies](evaluation/slides.html) | . | . |
-| 09/30 | Bias-Variance Tradeoff | . | . |
+| 09/30 | [Bias-Variance Tradeoff](bias_variance/slides.html) | . | . |
 | 10/02 | Decision Tree | . | Homework #3 |
 | 10/07 | Boosting | . | . |
 | 10/09 | Bootstrap | . | . |

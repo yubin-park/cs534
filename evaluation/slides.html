@@ -296,6 +296,34 @@ Example of Choosing the best `\(\lambda\)` in Elastic-Net
 
 ---
 
+class: middle
+
+## Example of Bad Cross-Validation
+
+1. Screen the predictors: find a subset of “good” predictors that show fairly strong (univariate) correlation with the class labels
+2. Using just this subset of predictors, build a multivariate classifier.
+3. Use cross-validation to estimate the unknown tuning parameters and to estimate the prediction error of the final model.
+
+What's wrong?
+
+.reference[Chapter 7 of https://web.stanford.edu/~hastie/ElemStatLearn/]
+
+---
+
+class: middle
+
+## Example of Correct Cross-Validation
+
+1. Divide the samples into K cross-validation folds (groups) at random. 2. For each fold k = 1,2,...,K
+2. For each fold k = 1,2,...,K
+  1. Find a subset of “good” predictors that show fairly strong (univariate) correlation with the class labels, using all of the samples except those in fold k.
+  2. Using just this subset of predictors, build a multivariate classifier, using all of the samples except those in fold k.
+  3. Use the classifier to predict the class labels for the samples in fold k.
+
+.reference[Chapter 7 of https://web.stanford.edu/~hastie/ElemStatLearn/]
+
+---
+
 class: center, middle
 
 ## Questions?

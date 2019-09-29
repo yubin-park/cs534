@@ -244,7 +244,7 @@ Recall that our samples are perturbed by noise, hence `\(\text{Var}(y)=\sigma^2\
 
 $$ \text{Var}(\hat{\mathbf{\beta}}) = \text{Var}((\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}) = (\mathbf{X}^T \mathbf{X})^{-1} \sigma^2 $$
 
-The coefficients follow a normal distribution, as it is a linear transformation of the normal noise, `\(\mathbf{\beta} = (\mathbf{X}^T\mathbf{X})^{-1}(\mathbf{y}-\mathbf{\epsilon})\)`. Thus,
+The coefficients follow a normal distribution, as it is a linear transformation of the normal noise, `\(\mathbf{\beta} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T(\mathbf{y}-\mathbf{\epsilon})\)`. Thus,
 
 $$ \hat{\mathbf{\beta}} \sim N(\mathbf{\beta}, (\mathbf{X}^T \mathbf{X})^{-1} \sigma^2) $$
 
