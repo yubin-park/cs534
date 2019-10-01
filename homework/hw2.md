@@ -4,8 +4,6 @@ Due 10/07
 
 ## Submission Instruction
 
-In this homework, you will implement two machine learning algorithms: **Ridge Regression** and **Forward-Stagewise Regression** with a little twist. 
-
 The homework must be submitted electronically on Canvas as a single submission.
 The submission will be a single Python file named as `hw2.py`.
 TA will run automatic test scripts to grade the submissions. Please note that:
