@@ -68,7 +68,7 @@ _Prerequisites:_
 | 09/23 | [Evaluation Metrics](evaluation/slides.html) | ESL Chapter 7 | [Homework #2](homework/hw2.md) |
 | 09/25 | [Evaluation Strategies](evaluation/slides.html) | ESL Chapter 7 | . |
 | 09/30 | [Bias-Variance Tradeoff](bias_variance/slides.html) | Chapter 20-27 of [Machine Learning Yearning](https://www.deeplearning.ai/machine-learning-yearning/) (Optional) | . |
-| 10/02 | [Decision Tree](decision_tree/slides.html) | . | Homework #3 |
+| 10/02 | [Decision Tree](decision_tree/slides.html) | . | [Homework #3](homework/hw3.md) |
 | 10/07 | Boosting | . | . |
 | 10/09 | Bootstrap | . | . |
 | 10/16 | Random Forests | . | Homework #4 |
@@ -120,12 +120,12 @@ Note that the final project contributes to 40% of your final grade.
 The final report should include a section that details each member's contribution to the project. 
 
 _Grading for the Final Project:_
-- Proposal (due TBD): 15%
-- Elevator Pitch (due TBD): 10%
+- Proposal (due 10/30): 15%
+- Elevator Pitch (due 11/04): 10%
   - Elevator pitch needs to address 1) why the problem is important or interesting, 2) what are existing solutions, and 3) how you plan to solve the problem differently
   - Teams are required to present this in **2 minutes** - that's why it's called elevator pitch.
-- Presentation (due TBD): 25%
-- Report (due TBD): 50%
+- Presentation (due 11/27): 25%
+- Report (due 12/13): 50%
 
 
 ## Policy
