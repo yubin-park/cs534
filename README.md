@@ -69,7 +69,7 @@ _Prerequisites:_
 | 09/25 | [Evaluation Strategies](evaluation/slides.html) | ESL Chapter 7 | . |
 | 09/30 | [Bias-Variance Tradeoff](bias_variance/slides.html) | Chapter 20-27 of [Machine Learning Yearning](https://www.deeplearning.ai/machine-learning-yearning/) (Optional) | . |
 | 10/02 | [Decision Tree](decision_tree/slides.html) | . | [Homework #3](homework/hw3.md) |
-| 10/07 | Boosting | . | . |
+| 10/07 | [Boosting](boosting/slides.html) | . | . |
 | 10/09 | Bootstrap | . | . |
 | 10/16 | Random Forests | . | Homework #4 |
 | 10/21 | _Midterm Exam_ | . | . |
