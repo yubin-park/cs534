@@ -49,8 +49,8 @@
         height: 300px;
       }
 
-      .figure-350 img{
-        height: 350px;
+      .figure-500 img{
+        height: 500px;
       }
 
       .figure-w500 img{
@@ -67,13 +67,107 @@
 
 class: center, middle
 
-# Bootstrap
+# Bagging
 
 CS534 - Machine Learning
 
 Yubin Park, PhD
 
 ---
+
+class: middle, center
+
+Recall the bias-variance decomposition
+
+for Squared Loss
+
+$$ \text{E}[(y-f)^2] = \text{Bias}[f]^2 + \text{Var}[f] + \sigma^2 $$
+
+---
+
+class: middle, center
+
+This time, we will decompose a bit differently:
+
+$$ \text{E}[(y-f)^2] = \text{E}[((y - \text{E}[f]) + (\text{E}[f] - f))^2]$$
+
+$$ = \text{E}[(y - \text{E}[f])^2] + \text{E}[(\text{E}[f] - f)^2]$$
+
+$$ \ge \text{E}[(y - \text{E}[f])^2] $$
+
+---
+
+class: middle, center
+
+Maybe too obvious.
+
+If we can make `\(f\)` close to `\(\text{E}[f]\)`
+
+the expected loss will be less.
+
+But, how?
+
+---
+
+## Bagging (1)
+
+Imagine that we know the "real" distribution for the samples: `\((\mathbf{x}_i, y_i)\)`
+
+To estimate `\(\text{E}[f]\)`, we would repeat:
+
+1. draw a set of samples
+1. estimate `\(f\)`
+
+then aggregate all estimated `\(f\)`.
+
+The only caveat is that we do not know the "real" distribution.
+
+Perhaps, we can "simulate" the real distribution with the samples we have?
+
+What's the difference between 1) sampling from the distribution and 2) sampling from the samples?
+
+
+---
+
+## Bagging (2)
+
+Bagging (Bootstrap Aggregation) works as follows:
+
+1. draw random samples from the data with "replacement"
+1. estimate `\(f\)`
+1. repeat `\(B\)` number of times
+
+then get the final model by averaging as follows:
+
+$$ f\_\text{bagged} = \frac{1}{B} \sum\_{b=1}^B f_b$$
+
+---
+
+class: middle, center
+
+.figure-500[![bt](img/bagged_trees.png)]
+
+.reference[Chapter 8 of [ESLII](https://web.stanford.edu/~hastie/ElemStatLearn/)]
+
+---
+
+class: middle, center
+
+.figure-500[![bt](img/bagged_tree_perf.png)]
+
+.reference[Chapter 8 of [ESLII](https://web.stanford.edu/~hastie/ElemStatLearn/)]
+
+---
+
+## Model Averaging
+
+Bagging?
+
+---
+
+## Model Stacking
+
+Boosting?
 
 ---
 
