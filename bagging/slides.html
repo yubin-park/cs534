@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bootstrap</title>
+    <title>Bagging</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">    <style>
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -117,14 +117,14 @@ To estimate `\(\text{E}[f]\)`, we would repeat:
 
 1. draw a set of samples
 1. estimate `\(f\)`
-
-then aggregate all estimated `\(f\)`.
+1. repeat the above as many as possible
+1. then aggregate all estimated `\(f\)`
 
 The only caveat is that we do not know the "real" distribution.
 
 Perhaps, we can "simulate" the real distribution with the samples we have?
 
-What's the difference between 1) sampling from the distribution and 2) sampling from the samples?
+BTW, What's the difference between 1) sampling from the distribution and 2) sampling from the samples?
 
 
 ---
@@ -159,15 +159,22 @@ class: middle, center
 
 ---
 
-## Model Averaging
+## Model Averaging and Stacking
 
-Bagging?
+One step beyond the simple averaging models:
 
----
+$$ \text{E}[(y - \sum\_{b=1}^B w\_b f\_b)^2] \le \text{E}[(y - \frac{1}{B} \sum\_{b=1}^B f_b)^2] $$
 
-## Model Stacking
+If `\(w_b = \frac{1}{B}\)`, then the both sides are equal.
 
-Boosting?
+How do we estimate the weights, `\(w_b\)`?
+
+We will divide the training set into two parts:
+
+- **Training I** for fitting `\(f\_b\)`
+- **Training II** for estimating `\(w_b\)`
+
+This can be viewed as stacking two layers of models, thus Model Stacking.
 
 ---
 
