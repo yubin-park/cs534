@@ -30,7 +30,7 @@ You will implement a Python class named as `class QuarternaryDecisionTree` that 
 - `predict(X)`: outputs the predictions for `X`
 
 Test your algorithm using various evaluation strategies you learned from the class. 
-Interpret what splitting pairs are selected.
+Interpret which splitting pairs are selected.
 
 
 ## Divide-and-Regress (regression)
@@ -41,11 +41,13 @@ A regular decision tree predicts with the mean value of the target variable at e
 In this problem, you will predict with an additional regression model.
 At each node, you will fit a Ridge linear regression and use the model to enhance the mean value prediction.
 
+In other words, you will use the minimum variance criterion to split the data into two partitions. After you split, you will apply a linear regression at each data partition, and use the regression model to predict for future data points.
+
 Your divide-and-regress decision tree will grow 1 to 2 levels for this problem, but your code should be able to handle deeper depths. You will implement a Python class named as `class DaRDecisionTree` that has two class methods:
-- `fit(X, y)`: fits the quarternary decision tree and store the tree inside
+- `fit(X, y)`: fits a binary decision tree and store the tree inside
 - `predict(X)`: outputs the predictions for `X`
 
 Test your algorithm using various evaluation strategies you learned from the class. 
-Interpret what splitting pairs are selected.
+Interpret which splitting pairs are selected.
 
 
