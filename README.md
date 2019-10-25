@@ -71,7 +71,7 @@ _Prerequisites:_
 | 10/02 | [Decision Tree](decision_tree/slides.html) | . | [Homework #3](homework/hw3.md) |
 | 10/07 | [Boosting](boosting/slides.html) | . | . |
 | 10/09 | [Bagging](bagging/slides.html) | . | . |
-| 10/16 | Random Forests | . | Homework #4 |
+| 10/16 | [Random Forests](random_forests/slides.html) | . | Homework #4 |
 | 10/21 | _Midterm Exam_ | . | . |
 | 10/23 | Nearest Neighbors | . | . |
 | 10/28 | Dimensionality Reduction (1) | . | Homework #5 |

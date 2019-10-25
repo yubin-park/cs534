@@ -33,6 +33,10 @@
         }
       }
 
+      .green {
+        color: #45ADA8;
+      }
+
       .figure img{
         height: 550px;
       }
@@ -67,13 +71,132 @@
 
 class: center, middle
 
-# RandomForests
+# Random Forests
 
 CS534 - Machine Learning
 
 Yubin Park, PhD
 
 ---
+
+class: center, middle
+
+"If you can't beat 'em, join 'em."
+
+To fight with the variance (or randomness), 
+
+we will adopt randomness to the limit.
+
+---
+
+class: middle
+
+## Basic Decision Tree
+
+- Start with a dataset: `\(\mathcal{D} = \{(\mathbf{x}_1, y_1), (\mathbf{x}_2, y_2), \cdots, (\mathbf{x}_n, y_n)\}\)`
+- Grow a Decision Tree:
+  1. Iterate over all possible splittig pairs: splitting variable and value
+  1. Select the best splitting pair
+  1. Split the data into two partitions based on the selected splitting pair
+  1. Repeat the process till any stopping criterion is met
+
+---
+
+class: middle
+
+## Bagged Trees
+
+- Start with a dataset: `\(\mathcal{D} = \{(\mathbf{x}_1, y_1), (\mathbf{x}_2, y_2), \cdots, (\mathbf{x}_n, y_n)\}\)`
+- .green[**Boostrap datasets:**] `\(\mathcal{D}_1, \mathcal{D}_2, \cdots, \mathcal{D}_B\)`
+- Grow a Decision Tree .green[**for each bootstrapped dataset:**]
+  1. Iterate over all possible splittig pairs: splitting variable and value
+  1. Select the best splitting pair
+  1. Split the data into two partitions based on the selected splitting pair
+  1. Repeat the process till any stopping criterion is met
+- .green[**Combine the trained decision trees**]
+
+.reference[[Leo Breiman. Bagging Predictors, Machine Learning (1996)](https://www.stat.berkeley.edu/~breiman/bagging.pdf)]
+
+---
+
+class: middle
+
+## Random Subspace
+
+- Start with a dataset: `\(\mathcal{D} = \{(\mathbf{x}_1, y_1), (\mathbf{x}_2, y_2), \cdots, (\mathbf{x}_n, y_n)\}\)`
+- Grow .green[**multiple**] Decision Tree using .green[**the same training data**]
+  1. .green[**Bootstrap features at each node**]
+  1. Iterate over all possible splittig pairs .green[**within the bootstrapped features**]
+  1. Select the best splitting pair
+  1. Split the data into two partitions based on the selected splitting pair
+  1. Repeat the process till any stopping criterion is met
+- .green[**Combine the trained decision trees**]
+
+
+.reference[[Tin Kam Ho. The Random Subspace Method for
+Constructing Decision Forests, IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE (1998)](https://pdfs.semanticscholar.org/b41d/0fa5fdaadd47fc882d3db04277d03fb21832.pdf)]
+
+---
+
+class: middle
+
+## Random Forests
+
+- Start with a dataset: `\(\mathcal{D} = \{(\mathbf{x}_1, y_1), (\mathbf{x}_2, y_2), \cdots, (\mathbf{x}_n, y_n)\}\)`
+- .green[**Boostrap datasets:**] `\(\mathcal{D}_1, \mathcal{D}_2, \cdots, \mathcal{D}_B\)`
+- Grow a Decision Tree .green[**for each bootstrapped dataset:**]
+  1. .green[**Bootstrap features at each node**]
+  1. Iterate over all possible splittig pairs .green[**within the bootstrapped features**]
+  1. Select the best splitting pair
+  1. Split the data into two partitions based on the selected splitting pair
+  1. Repeat the process till any stopping criterion is met
+- .green[**Combine the trained decision trees**]
+
+
+.reference[[Leo Breiman. Random Forests, Machine Learning (2001)](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf)]
+
+---
+
+class: middle
+
+## Extra-Trees
+
+- Start with a dataset: `\(\mathcal{D} = \{(\mathbf{x}_1, y_1), (\mathbf{x}_2, y_2), \cdots, (\mathbf{x}_n, y_n)\}\)`
+- Grow .green[**multiple**] Decision Tree using .green[**the same training data**]
+  1. .green[**Bootstrap features at each node**]
+  1. .green[**Draw random split values for the bootstraped features**]
+  1. Iterate over all .green[**the candidate splittig pairs**]
+  1. Select the best splitting pair
+  1. Split the data into two partitions based on the selected splitting pair
+  1. Repeat the process till any stopping criterion is met
+- .green[**Combine the trained decision trees**]
+
+
+.reference[[Pierre Geurts, Damien Ernst, Louis Wehenkel. Extremely randomized trees, Machine Learning (2006)](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.65.7485&rep=rep1&type=pdf)]
+
+---
+
+class: center, middle
+
+.figure-w600[![rf1](img/rf1.png)]
+
+.reference[Chapter 15 of [ESLII](https://web.stanford.edu/~hastie/ElemStatLearn/)]
+
+---
+
+class: center, middle
+
+.figure-w600[![rf1](img/rf2.png)]
+
+.reference[Chapter 15 of [ESLII](https://web.stanford.edu/~hastie/ElemStatLearn/)]
+
+---
+
+class: center, middle
+
+.figure-w600[![rf1](img/rf3.png)]
+
+.reference[Chapter 15 of [ESLII](https://web.stanford.edu/~hastie/ElemStatLearn/)]
 
 ---
 
