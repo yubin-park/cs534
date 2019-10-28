@@ -73,7 +73,7 @@ _Prerequisites:_
 | 10/09 | [Bagging](bagging/slides.html) | . | . |
 | 10/16 | [Random Forests](random_forests/slides.html) | . | Homework #4 |
 | 10/21 | _Midterm Exam_ | . | . |
-| 10/23 | Nearest Neighbors | . | . |
+| 10/23 | [Nearest Neighbors](nearest_neighbors/slides.html) | Chapter 3 of [Mining of Massive Dataset](http://www.mmds.org/) (Optional) | . |
 | 10/28 | Dimensionality Reduction (1) | . | Homework #5 |
 | 10/30 | Dimensionality Reduction (2) | . | . |
 | 11/04 | Convex Optimization | . | . |

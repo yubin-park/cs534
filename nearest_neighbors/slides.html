@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NN</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .reference{
+      	font-size: 10px;
+      }
+      .smaller-font { font-size:14px } 
+      @page {
+        size: 908px 681px;
+        margin: 0;
+      }
+
+      @media print {
+        .remark-slide-scaler {
+          width: 100% !important;
+          height: 100% !important;
+          transform: scale(1) !important;
+          top: 0 !important;
+          left: 0 !important;
+        }
+      }
+
+      .green {
+        color: #45ADA8;
+      }
+
+      .figure img{
+        height: 550px;
+      }
+
+      .figure-200 img{
+        height: 200px;
+      }
+
+      .figure-250 img{
+        height: 250px;
+      }
+
+      .figure-300 img{
+        height: 300px;
+      }
+
+      .figure-350 img{
+        height: 350px;
+      }
+
+      .figure-w500 img{
+        width: 500px;
+      }
+
+      .figure-w600 img{
+        width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Nearest Neighbor
+
+CS534 - Machine Learning
+
+Yubin Park, PhD
+
+---
+
+class: center, middle
+
+Consider
+
+$$ y_1 = f(\mathbf{x}_1) $$
+
+and 
+
+$$ y_2 = f(\mathbf{x}_2) $$
+
+---
+
+class: center, middle
+
+If
+
+$$ \mathbf{x}_1 = \mathbf{x}_2 $$
+
+then 
+
+$$ y_1 = y_2 $$
+
+---
+
+class: center, middle
+
+What if
+
+$$ \mathbf{x}_1 \approx \mathbf{x}_2 $$
+
+then 
+
+$$ y_1 \approx y_2 \text{?}$$
+
+---
+
+## Distance Metric
+
+We need to "measure" how similar `\(\mathbf{x}_1\)` and `\(\mathbf{x}_2\)` are using a distance function.
+
+A distance function satisfies:
+
+1. `\(d(\mathbf{x}_1, \mathbf{x}_2) \ge 0\)`, and `\(d(\mathbf{x}_1, \mathbf{x}_2) = 0\)` if and only if `\(\mathbf{x}_1=\mathbf{x}_2\)`
+1. `\(d(\mathbf{x}_1, \mathbf{x}_2) = d(\mathbf{x}_2, \mathbf{x}_1)\)` (symmetric)
+1. `\(d(\mathbf{x}_1, \mathbf{x}_2) \le d(\mathbf{x}_1, \mathbf{x}_3) + d(\mathbf{x}_3, \mathbf{x}_2)\)` (triangle inequality)
+
+Questions:
+- Is `\( (\mathbf{x}_1 - \mathbf{x}_2 )^T(\mathbf{x}_1 - \mathbf{x}_2 ) \)` a distance function?
+- How about `\(\frac{\mathbf{x}_1^T \mathbf{x}_2}{||\mathbf{x}_1|| || \mathbf{x}_2||}\)` ([cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity))?
+- How about `\(1 - \frac{\mathbf{x}_1^T \mathbf{x}_2}{||\mathbf{x}_1|| || \mathbf{x}_2||}\)` (1 - cosine similarity)?
+
+---
+
+## `\(k\)`-Nearest Neighbors (kNN)
+
+No training is needed for kNN.
+
+For a new data point `\(\mathbf{x}_{\text{new}}\)`,
+
+1. For `\(i=0\)` to `\(n\)`,
+  1. Measure the distance between `\(\mathbf{x}_{\text{new}}\)` and `\(\mathbf{x}_{i}\)`
+1. Select top-k nearest neighbors  
+1. `\(\hat{y} = \frac{\sum \mathbf{x}_{nn}}{k}\)`
+
+kNN is an [instance-based learning](https://en.wikipedia.org/wiki/Instance-based_learning) (or memory-based learning).
+
+Question:
+- What is the effect of `\(k\)` on the bias and variance of the model?
+
+
+---
+
+class: center, middle
+
+.figure-w500[![nn1](img/nn1.png)]
+
+.reference[Chapter 13 of [ESLII](https://web.stanford.edu/~hastie/ElemStatLearn/)]
+
+---
+
+class: center, middle
+
+.figure-w500[![nn1](img/nn1b.png)]
+
+.reference[Chapter 13 of [ESLII](https://web.stanford.edu/~hastie/ElemStatLearn/)]
+
+
+---
+
+class: center, middle
+
+.figure-w500[![nn1](img/nn2b.png)]
+
+.reference[Chapter 13 of [ESLII](https://web.stanford.edu/~hastie/ElemStatLearn/)]
+
+
+---
+
+class: center, middle
+
+.figure-w500[![nn1](img/nn2.png)]
+
+.reference[Chapter 13 of [ESLII](https://web.stanford.edu/~hastie/ElemStatLearn/)]
+
+---
+
+## Practical Considerations
+
+- Speed
+- Metric Learning
+- Curse of dimensionality
+
+---
+
+## Approximate Nearest Neighbor
+
+---
+
+class: center, middle
+
+## Questions?
+
+</textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+      /*
+        Language: terminal console
+        Author: Josh Bode <joshbode@gmail.com>
+      */
+      hljs.registerLanguage('terminal', function() {
+        return {
+          contains: [
+            {
+              className: 'string',
+              begin: '^([\\w.]+)@([\\w.]+)'
+            },
+            {
+              className: 'constant',
+              begin: ' (.*) \\$ '
+            },
+            {
+              className: 'ansi',
+              begin: '<span style\\="([^"]+)">',
+              end: '<\\/span>'
+            }
+          ]
+        }
+      });
+      var slideshow = remark.create({
+        highlightStyle: 'monokai'
+      });
+
+      // extract the embedded styling from ansi spans
+      var highlighted = document.querySelectorAll("code.terminal span.hljs-ansi");
+      Array.prototype.forEach.call(highlighted, function(next) {
+        next.insertAdjacentHTML("beforebegin", next.textContent);
+        next.parentNode.removeChild(next);
+      });
+
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+
+      MathJax.Hub.Configured();
+    </script>
+  </body>
+</html>
