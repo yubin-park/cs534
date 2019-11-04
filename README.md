@@ -71,15 +71,15 @@ _Prerequisites:_
 | 10/02 | [Decision Tree](decision_tree/slides.html) | . | [Homework #3](homework/hw3.md) |
 | 10/07 | [Boosting](boosting/slides.html) | . | . |
 | 10/09 | [Bagging](bagging/slides.html) | . | . |
-| 10/16 | [Random Forests](random_forests/slides.html) | . | Homework #4 |
+| 10/16 | [Random Forests](random_forests/slides.html) | . | . |
 | 10/21 | _Midterm Exam_ | . | . |
 | 10/23 | [Nearest Neighbors](nearest_neighbors/slides.html) | Chapter 3 of [Mining of Massive Dataset](http://www.mmds.org/) (Optional) | . |
-| 10/28 | Dimensionality Reduction (1) | . | Homework #5 |
+| 10/28 | [Dimensionality Reduction (1)](dim_reduction/slides.html) | . | [Homework #4](homework/hw4.md) |
 | 10/30 | Dimensionality Reduction (2) | . | . |
 | 11/04 | Convex Optimization | . | . |
 | 11/06 | _Project Elevator Pitch_ | . | . |
 | 11/11 | Support Vector Machine | . | . |
-| 11/13 | Neural Networks | . | . |
+| 11/13 | Neural Networks | . | Homework #5 |
 | 11/18 | Deep Learning (1) | . | . |
 | 11/20 | Deep Learning (2) | . | . |
 | 11/25 | Applications - DL-based Drug Discovery | . | . |
