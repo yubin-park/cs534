@@ -123,7 +123,33 @@ We will cover the Linear Transformation approach in this lecture.
 
 ---
 
+class: middle, center
+
+.figure-350[![2D](img/2Ddata.png)]
+
+The data seem like distrubuted in 2D, but...
+
+---
+
+class: middle, center
+
+.figure-350[![1D](img/1Ddata.png)]
+
+If we rotate the coordinates, they are distributed in 1D.
+
+---
+
 ## Principal Component Analysis
+
+The rotation in the example is a part of "[linear transformation](https://en.wikipedia.org/wiki/Linear_map)".
+
+We want to find a linear transformation:
+
+$$ f(\mathbf{x}) = \mathbf{\mu} + \mathbf{V}\mathbf{x} $$
+
+that minimizes the Squared Loss function:
+
+$$ \sum (\mathbf{x}_i - f(\mathbf{x}_i) )^T(\mathbf{x}_i - f(\mathbf{x}_i) ) $$
 
 ---
 

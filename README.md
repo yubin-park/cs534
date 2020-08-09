@@ -1,6 +1,6 @@
 # CS534 - Machine Learning
 
-This repository contains course materials for [CS 534 - Machine Learning](https://www.cs.emory.edu/courses/atlas/graduate/) provided in Fall 2019 at [Emory University](http://www.emory.edu/home/index.html).
+This repository contains course materials for [CS 534 - Machine Learning](https://www.cs.emory.edu/courses/atlas/graduate/) provided in Fall 2020 at [Emory University](http://www.emory.edu/home/index.html).
 
 Course syllabus, slides, and homework are largely borrowed/copied from Professor Joyce Ho's [CS534 class](https://joyceho.github.io/course/cs534_f18/).
 
@@ -59,34 +59,35 @@ _Prerequisites:_
 
 | Date | Topic | Reference | Assignment |
 | ---- | ----- | --------- | ---------- |
-| 08/28 | [Introduction](prerequisite/slides.html) | . | [Homework #0](homework/hw0.md) |
-| 09/04 | [Prerequisite - Statistics](prerequisite/slides.html#13) | . | . |
-| 09/09 | [Linear Model - Regression (1)](linear_model/slides_reg.html)  | ESL Chapter 3 | [Homework #1](homework/hw1.md) |
-| 09/11 | [Linear Model - Regression (2)](linear_model/slides_reg.html) | ESL Chapter 3 | . |
-| 09/16 | [Linear Model - Classification](linear_model/slides_cls.html) | ESL Chapter 4 | . |
-| 09/18 | [Linear Model - Other Distributions](linear_model/slides_cls.html) | ESL Chapter 4 and [GLMNET](https://web.stanford.edu/~hastie/glmnet/glmnet_beta.html) | . |
-| 09/23 | [Evaluation Metrics](evaluation/slides.html) | ESL Chapter 7 | [Homework #2](homework/hw2.md) |
-| 09/25 | [Evaluation Strategies](evaluation/slides.html) | ESL Chapter 7 | . |
-| 09/30 | [Bias-Variance Tradeoff](bias_variance/slides.html) | Chapter 20-27 of [Machine Learning Yearning](https://www.deeplearning.ai/machine-learning-yearning/) (Optional) | . |
-| 10/02 | [Decision Tree](decision_tree/slides.html) | . | [Homework #3](homework/hw3.md) |
-| 10/07 | [Boosting](boosting/slides.html) | . | . |
-| 10/09 | [Bagging](bagging/slides.html) | . | . |
-| 10/16 | [Random Forests](random_forests/slides.html) | . | . |
-| 10/21 | _Midterm Exam_ | . | . |
-| 10/23 | [Nearest Neighbors](nearest_neighbors/slides.html) | Chapter 3 of [Mining of Massive Dataset](http://www.mmds.org/) (Optional) | . |
-| 10/28 | [Dimensionality Reduction (1)](dim_reduction/slides.html) | . | [Homework #4](homework/hw4.md) |
-| 10/30 | Dimensionality Reduction (2) | . | . |
-| 11/04 | Convex Optimization | . | . |
-| 11/06 | _Project Elevator Pitch_ | . | . |
-| 11/11 | Support Vector Machine | . | . |
-| 11/13 | Neural Networks | . | Homework #5 |
-| 11/18 | Deep Learning (1) | . | . |
-| 11/20 | Deep Learning (2) | . | . |
-| 11/25 | Applications - DL-based Drug Discovery | . | . |
-| 11/27 | Applications - Recommender System | . | . |
-| 12/02 | _Presentations_ | . | . |
-| 12/04 | _Presentations_ | . | . |
-| 12/09 | _Presentations_ | . | . |
+| 08/19 | [Introduction](prerequisite/slides.html) | . | [Homework #0](homework/hw0.md) |
+| 08/24 | [Prerequisite - Statistics](prerequisite/slides.html#13) | . | . |
+| 08/26 | [Linear Model - Regression (1)](linear_model/slides_reg.html)  | ESL Chapter 3 | [Homework #1](homework/hw1.md) |
+| 08/31 | [Linear Model - Regression (2)](linear_model/slides_reg.html) | ESL Chapter 3 | . |
+| 09/02 | [Linear Model - Classification](linear_model/slides_cls.html) | ESL Chapter 4 | . |
+| 09/07 | [Linear Model - Other Distributions](linear_model/slides_cls.html) | ESL Chapter 4 and [GLMNET](https://web.stanford.edu/~hastie/glmnet/glmnet_beta.html) | . |
+| 09/09 | [Evaluation Metrics](evaluation/slides.html) | ESL Chapter 7 | [Homework #2](homework/hw2.md) |
+| 09/14 | [Evaluation Strategies](evaluation/slides.html) | ESL Chapter 7 | . |
+| 09/16 | [Bias-Variance Tradeoff](bias_variance/slides.html) | Chapter 20-27 of [Machine Learning Yearning](https://www.deeplearning.ai/machine-learning-yearning/) (Optional) | . |
+| 09/21 | [Decision Tree](decision_tree/slides.html) | . | [Homework #3](homework/hw3.md) |
+| 09/23 | [Boosting](boosting/slides.html) | . | . |
+| 09/28 | [Bagging](bagging/slides.html) | . | . |
+| 09/30 | [Random Forests](random_forests/slides.html) | . | . |
+| 10/05 | _Midterm Exam_ | . | . |
+| 10/07 | [Nearest Neighbors](nearest_neighbors/slides.html) | Chapter 3 of [Mining of Massive Dataset](http://www.mmds.org/) (Optional) | . |
+| 10/12 | [Dimensionality Reduction (1)](dim_reduction/slides.html) | . | [Homework #4](homework/hw4.md) |
+| 10/14 | Dimensionality Reduction (2) | . | . |
+| 10/19 | Convex Optimization | . | . |
+| 10/21 | _Project Elevator Pitch_ | . | . |
+| 10/26 | Support Vector Machine | . | . |
+| 10/28 | Neural Networks | . | Homework #5 |
+| 11/02 | Deep Learning (1) | . | . |
+| 11/04 | Deep Learning (2) | . | . |
+| 11/09 | Applications - DL-based Drug Discovery | . | . |
+| 11/11 | Applications - Recommender System | . | . |
+| 11/16 | _Presentations_ | . | . |
+| 11/18 | _Presentations_ | . | . |
+| 11/23 | _Presentations_ | . | . |
+| 11/25 | _Presentations_ | . | . |
 
 NOTE: Course materials with the `md` extension are [Markdown](https://en.wikipedia.org/wiki/Markdown) files.
 To read the Markdown files, you can use various "free" Markdown viewer applications out there e.g:
