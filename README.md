@@ -15,7 +15,7 @@ How did these companies become so successful?
 There may be many reasons, one may say. 
 Unfortunately, the answer to this question is beyond the scope of this course.
 However, I find that one commonality of these companies remarkably stands out:
-their love for data.
+"their insatiable appetite for data".
 Six years later, Marc Andreessen's famous quote was wittily supplemented with
 ["..., but AI is going to eat software"](https://www.technologyreview.com/s/607831/nvidia-ceo-software-is-eating-the-world-but-ai-is-going-to-eat-software/)
 by Jensen Huang.
@@ -47,14 +47,17 @@ _Prerequisites:_
   1. [The Elements of Statistical Learning](https://web.stanford.edu/~hastie/ElemStatLearn/) by Trevor Hastie, Robert Tibshirani, and Jerome Friedman
   1. [A Course in Machine Learning](http://ciml.info/) by Hal Daum&#xE9; III
 - Office Hours
-  - 2:30 pm ET - 3:30 pm ET on Monday at [Kaldi's Coffee at the ESC](https://kaldiscoffee.com/pages/kaldis-coffee-at-the-esc)
-  - 3:00 pm ET - 4:00 pm ET on Wednesday at [Kaldi's Coffee at the ESC](https://kaldiscoffee.com/pages/kaldis-coffee-at-the-esc)
+  - 2:30 pm ET - 3:30 pm ET on Monday at [Zoom]()
+  - 3:00 pm ET - 4:00 pm ET on Wednesday at [Zoom]()
 - TA Office Hours
-  - Jing Ma
-    - 4:00 pm ET - 5:00 pm ET on Wednesday at [MSC Lab](http://www.mathcs.emory.edu/computinglab.php)
-  - Mani Sotoodeh
-    - 4:00 pm ET - 5:00 pm ET on Monday at [MSC Lab](http://www.mathcs.emory.edu/computinglab.php)
-
+  - Han Xie (email: {firstname}.{lastname}@emory.edu)
+    - 4:00 pm ET - 5:00 pm ET on Wednesday at [Zoom]()
+- 100% Online Class
+  - This course is offered 100% online using these tools:
+    - [Canvas](https://canvas.emory.edu/courses/76953): Canvas will be used to track assignments, grades, and important announcements. 
+    - [Zoom](https://emory.zoom.us/): Zoom will be used for the synchronous online lectures. Please check the Zoom link on the Canvas course page.
+    - [Slack](https://slack.com/): Slack will be used as the main communication tool for the class e.g. questions regarding homeworks, lectures, etc.
+  
 ## Schedule
 
 | Date | Topic | Reference | Assignment |
