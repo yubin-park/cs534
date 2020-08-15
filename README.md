@@ -8,7 +8,7 @@ Course syllabus, slides, and homework are largely borrowed/copied from Professor
 
 ["Software is eating the world,"](https://a16z.com/2011/08/20/why-software-is-eating-the-world/)
  said Marc Andreessen in 2011. 
-By then, he was referring to companies like Amazon, Netflix, Apple, and Google who are massively transforming the traditional industries with the power of internet and software.
+By then, he was referring to companies like Amazon, Netflix, Apple, and Google who are massively transforming the traditional industries with the power of the internet and software.
 It was true in some sense, as apparent in [their enormous growth in market capitalization](https://www.investopedia.com/terms/f/faang-stocks.asp).
 
 How did these companies become so successful?
@@ -56,7 +56,7 @@ _Prerequisites:_
   - This course is offered 100% online using these tools:
     - [Canvas](https://canvas.emory.edu/courses/76953): Canvas will be used to track assignments, grades, and important announcements. 
     - [Zoom](https://emory.zoom.us/): Zoom will be used for the synchronous online lectures. Please check the Zoom link on the Canvas course page.
-    - [Slack](https://slack.com/): Slack will be used as the main communication tool for the class e.g. questions regarding homeworks, lectures, etc.
+    - [Slack](https://slack.com/): Slack will be used as the main communication tool for the class e.g. questions regarding homework, lectures, etc.
   
 ## Schedule
 
@@ -85,8 +85,8 @@ _Prerequisites:_
 | 10/28 | Neural Networks | . | Homework #5 |
 | 11/02 | Deep Learning (1) | . | . |
 | 11/04 | Deep Learning (2) | . | . |
-| 11/09 | Applications - DL-based Drug Discovery | . | . |
-| 11/11 | Applications - Recommender System | . | . |
+| 11/09 | Guest Lecture (TBD) | . | . |
+| 11/11 | Guest Lecture (TBD) | . | . |
 | 11/16 | _Presentations_ | . | . |
 | 11/18 | _Presentations_ | . | . |
 | 11/23 | _Presentations_ | . | . |
@@ -127,7 +127,7 @@ _Grading for the Final Project:_
 - Proposal (due 10/30): 15%
 - Elevator Pitch (due 11/04): 10%
   - Elevator pitch needs to address 1) why the problem is important or interesting, 2) what are existing solutions, and 3) how you plan to solve the problem differently
-  - Teams are required to present this in **2 minutes** - that's why it's called elevator pitch.
+  - Teams are required to present this in **2 minutes** - that's why it's called the elevator pitch.
 - Presentation (due 11/27): 25%
 - Report (due 12/13): 50%
 
