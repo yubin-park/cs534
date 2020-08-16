@@ -56,16 +56,16 @@ _Prerequisites:_
   - This course is offered 100% online using these tools:
     - [Canvas](https://canvas.emory.edu/courses/76953): Canvas will be used to track assignments, grades, and important announcements. 
     - [Zoom](https://emory.zoom.us/): Zoom will be used for the synchronous online lectures. Please check the Zoom link on the Canvas course page.
-    - [Slack](https://slack.com/): Slack will be used as the main communication tool for the class e.g. questions regarding homework, lectures, etc. The instructor and TAs will try to respond any Slack messages within 24 hours during weekdays, 48 hours during weekends.
+    - [Slack](https://slack.com/): Slack will be used as the main communication tool for the class e.g. questions regarding homework, lectures, etc. The instructor and TAs will try to respond to any Slack messages within 24 hours during weekdays, 48 hours during weekends.
   - Please show up in the scheduled Zoom sessions
     - This course intends to teach you how to think with machine learning, not the knowledge of machine learning.
-    - Attendance is up to the individual student. Students should be reponsible for keeping their course schedules and deadlines. 
+    - Attendance is up to the individual student. Students should be responsible for keeping their course schedules and deadlines. 
   - Lastly, please be mindful of your personal safety, and avoid including personal information, such as phone numbers or addresses, in discussion forums. All online communications should be transmitted with the intent to inform, inspire, etc. - not to offend or breach personal privacy. Never use private information about other individuals and be sensitive to the information you share about yourself.
   
 ## Schedule
 
 **WEEKLY OBJECTIVE:**
-Most of the time, each lecture focuses on a different machine learning algrothm, starting from very foundational yet simple ones to more complex and sophisticated ones. 
+Most of the time, each lecture focuses on a different machine learning algorithm, starting from very foundational yet simple ones to more complex and sophisticated ones. 
 Students will be able to understand 1) how such machine learning algorithms are motivated/developed, 2) when such models will be useful and avoided, and 3) how to implement and modify such models to deal with more custom settings.
 
 | Date | Topic | Reference | Assignment |
