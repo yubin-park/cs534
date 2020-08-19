@@ -68,6 +68,12 @@ _Prerequisites:_
 Most of the time, each lecture focuses on a different machine learning algorithm, starting from very foundational yet simple ones to more complex and sophisticated ones. 
 Students will be able to understand 1) how such machine learning algorithms are motivated/developed, 2) when such models will be useful and avoided, and 3) how to implement and modify such models to deal with more custom settings.
 
+**GUEST LECTURES:** We are excited to have a stellar array of guest lecturers:
+- [Tian Su, PhD](https://www.linkedin.com/in/tian-su-81103538/), Director of Machine Learning
+- [Hyunjoon Jung, PhD](https://www.linkedin.com/in/hyunvincero/), Director of Personalization Data Science at Nike
+- [Jenny Wang](https://www.linkedin.com/in/jenny-fengjuan-wang-a70b3810/), VP of Episode Development at Signify Health
+- [Yen Sia Low, PhD](https://www.linkedin.com/in/yenlow/), ML Architect at Rally Health (Optum Digital)
+
 | Date | Topic | Reference | Assignment |
 | ---- | ----- | --------- | ---------- |
 | 08/19 | [Introduction](prerequisite/slides.html) | . | [Homework #0](homework/hw0.md) |
