@@ -51,7 +51,7 @@ _Prerequisites:_
   - 3:00 pm ET - 4:00 pm ET on Wednesday at Zoom (the link will be available on Slack)
 - TA Office Hours
   - Han Xie (email: {firstname}.{lastname}@emory.edu)
-    - Schedule TBD at Zoom (the link will be available on Slack)
+    - Thursday 2:30 pm to 3:30 pm at Zoom (the link will be available on Slack)
 - 100% Online Class
   - This course is offered 100% online using these tools:
     - [Canvas](https://canvas.emory.edu/courses/76953): Canvas will be used to track assignments, grades, and important announcements. 
