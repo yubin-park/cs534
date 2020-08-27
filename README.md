@@ -104,7 +104,6 @@ Students will be able to understand 1) how such machine learning algorithms are 
 | 11/16 | _Presentations_ | . | . |
 | 11/18 | _Presentations_ | . | . |
 | 11/23 | _Presentations_ | . | . |
-| 11/25 | _Presentations_ | . | . |
 
 NOTE: Course materials with the `md` extension are [Markdown](https://en.wikipedia.org/wiki/Markdown) files.
 To read the Markdown files, you can use various "free" Markdown viewer applications out there e.g:

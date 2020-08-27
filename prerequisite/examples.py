@@ -13,7 +13,7 @@ n, m = df.shape # n: number of rows, m: number of columns
 #print(df["RM"].values[:100])
 
 #col = "RM" # the number of rooms
-col = "MEDV" # median price of houses
+col = "MEDV" # median prices of houses
 
 xmin = df[col].min()
 xmax = df[col].max()
