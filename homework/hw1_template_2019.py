@@ -2,7 +2,7 @@
 import numpy as np
 
 
-class MyRidge:
+class Ridge:
 
     def __init__(self):
         self.intercept = 0
@@ -13,26 +13,23 @@ class MyRidge:
         n, m = X.shape
 
         lmbd = lmbd * n
-
+        
         if coef_prior == None:
             coef_prior = np.zeros(m)
 
         # Normalize X
-        # [Question 1] Explain why in the comments (10 pt)
         x_mu = np.mean(X, axis=0)
         x_sigma = np.std(X, axis=0)
         X = (X - x_mu)/x_sigma # normalized X
 
         # Scale coef_prior based on the standard dev. of X
-        # [Question 2] Explain Explain why in the comments (10 pt)
         coef_prior = coef_prior * x_sigma
 
-        # [Question 3] Derive an equation for getting the coefficient (20 pt)
+        # Get coefficients
         intercept = np.mean(y)
         coef = ... # HERE, you should find the coef
 
         # Re-scale coef for the original X scale (not normalized)
-        # [Question 4] Explain why in the comments (10 pt)
         self.intercept = intercept - np.sum(coef * x_mu / x_sigma)
         self.coef = coef / x_sigma
 
@@ -41,22 +38,31 @@ class MyRidge:
     def get_coef(self):
         return self.intercept, self.coef
 
+class ForwardStagewise:
 
-def test_myridge():
+    def __init__(self):
+        self.intercept = 0
+        self.path = []
 
-    # [Question 5] Import your Ridge class (5 pt)
+    def fit(self, X, y, cannot_link=[], epsilon=1e-5, max_iter=1000):
 
-    # [Question 6] Import a test dataset (5 pt)
+        # a) normalize X
 
-    # [Question 7] Set coef_prior=None, and check if it gives the same results as 
-    # https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html
-    # (20 pt)
+        # b-1) implement incremental forwward-stagewise
+        # b-2) implement cannot-link constraints
 
-    # [Question 8] Set coef_prior != None, and change lmbd from 0 to 1000
-    # Describe how estimated coefficients change, and explain why in the comments. (20 pt)
+        # c) adjust coefficients for de-normalized X
+
+        # d) construct the "path" numpy array
+        #     path: l-by-m array,
+        #               where l is the total number of iterations
+        #               m is the number of features in X.
+        #               The first row, path[0,:], should be all zeros.
+
+        return 0
+
+    def get_coef_path(self):
+        return self.intercept, self.path
 
 
 
-if __name__ == "__main__":
-    
-    test_myridge()
