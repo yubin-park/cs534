@@ -1,6 +1,6 @@
 # Homework \#2
 
-Due 10/07
+Due 10/01
 
 ## Submission Instruction
 
@@ -53,10 +53,16 @@ He comes over and gives some hints.
 
 In this homework problem,
 1. Download the Apple data form [here](AAPL.csv)
-2. Your test set will be May, June, July of 2019. You will predict tomorrow's closing price using past prices and volumes.
+2. Your test set will be May, June, July of 2020. You will predict tomorrow's closing price using past prices and volumes.
 3. Make various features that may help your predictive algorithms e.g. moving average
 4. Use Elastic-Net with varying `alpha` and `lambda` - for the purpose of the problem, do not use other machine learning algorithms. Use the [sklearn Elastic Net](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html).
 5. Use various evaluation metrics and interpret your results.
+
+Note that you are allowed to explore different evaluation metrics. For example, if you want to predict if AAPL will fall more than 2% in the next day, you can deploy a short-selling strategy to gain some profits. In this case, you would be solving a binary classification problem, not a regression problem. 
+
+On the other hand, if you want to use call/put options, then you would want to predict something different. How would you come up with a reasonable strategy based on your predictions, and how would you formulate a machine learning problem to achieve that? 
+
+Please come up with something of your own and think about what interesting things you can find with this stock data. 
 
 
 
