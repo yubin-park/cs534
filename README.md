@@ -84,21 +84,21 @@ Students will be able to understand 1) how such machine learning algorithms are 
 | 09/07 | [Linear Model - Other Distributions](linear_model/slides_cls.html) | ESL Chapter 4 and [GLMNET](https://web.stanford.edu/~hastie/glmnet/glmnet_beta.html) | . |
 | 09/09 | [Evaluation Metrics](evaluation/slides.html) | ESL Chapter 7 | [Homework #2](homework/hw2.md) |
 | 09/14 | [Evaluation Strategies](evaluation/slides.html) | ESL Chapter 7 | . |
-| 09/16 | [Bias-Variance Tradeoff](bias_variance/slides.html) | Chapter 20-27 of [Machine Learning Yearning](https://www.deeplearning.ai/machine-learning-yearning/) (Optional) | . |
-| 09/21 | [Decision Tree](decision_tree/slides.html) | . | [Homework #3](homework/hw3.md) |
-| 09/23 | [Boosting](boosting/slides.html) | . | . |
-| 09/28 | [Bagging](bagging/slides.html) | . | . |
-| 09/30 | [Random Forests](random_forests/slides.html) | . | . |
-| 10/05 | _Midterm Exam_ | . | . |
-| 10/07 | [Nearest Neighbors](nearest_neighbors/slides.html) | Chapter 3 of [Mining of Massive Dataset](http://www.mmds.org/) (Optional) | . |
-| 10/12 | [Dimensionality Reduction (1)](dim_reduction/slides.html) | . | [Homework #4](homework/hw4.md) |
-| 10/14 | Dimensionality Reduction (2) | . | . |
-| 10/19 | Convex Optimization | . | . |
-| 10/21 | _Project Elevator Pitch_ | . | . |
-| 10/26 | Support Vector Machine | . | . |
-| 10/28 | Neural Networks | . | Homework #5 |
-| 11/02 | Deep Learning (1) | . | . |
-| 11/04 | Deep Learning (2) | . | . |
+| 09/16 | [Bias-Variance Tradeoff (1)](bias_variance/slides.html) | Chapter 20-27 of [Machine Learning Yearning](https://www.deeplearning.ai/machine-learning-yearning/) (Optional) | . |
+| 09/21 | [Bias-Variance Tradeoff (2)](bias_variance/slides.html) | Chapter 20-27 of [Machine Learning Yearning](https://www.deeplearning.ai/machine-learning-yearning/) (Optional) | . |
+| 09/23 | [Decision Tree](decision_tree/slides.html) | . | [Homework #3](homework/hw3.md) |
+| 09/28 | [Boosting](boosting/slides.html) | . | . |
+| 09/30 | [Boosting](boosting/slides.html) | . | . |
+| 10/05 | [Bagging](bagging/slides.html) | . | . |
+| 10/07 | [Random Forests](random_forests/slides.html) | . | . |
+| 10/12 | [Nearest Neighbors](nearest_neighbors/slides.html) | Chapter 3 of [Mining of Massive Dataset](http://www.mmds.org/) (Optional) | . |
+| 10/14 | [Dimensionality Reduction (1)](dim_reduction/slides.html) | . | [Homework #4](homework/hw4.md) |
+| 10/19 | Dimensionality Reduction (2) | . | . |
+| 10/21 | Convex Optimization | . | . |
+| 10/26 | _Project Elevator Pitch_ | . | . |
+| 10/28 | Support Vector Machine | . | . |
+| 11/02 | Neural Networks | . | Homework #5 |
+| 11/04 | Guest Lecture (Yen Sia Low) | . | . |
 | 11/09 | Guest Lecture (TBD) | . | . |
 | 11/11 | Guest Lecture (TBD) | . | . |
 | 11/16 | _Presentations_ | . | . |

@@ -1,6 +1,6 @@
 # Homework \#3
 
-Due 10/21
+Due 11:59 pm ET on 10/30
 
 ## Submission Instruction
 
