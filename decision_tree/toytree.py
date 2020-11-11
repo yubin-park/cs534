@@ -70,15 +70,16 @@ class ToyTree:
 if __name__=="__main__":
 
     from sklearn.datasets import load_iris
+    from sklearn.datasets import load_breast_cancer
 
-    X, y = load_iris(return_X_y=True)
+    X, y = load_breast_cancer(return_X_y=True)
     y = np.asarray(y == 0, dtype=int)
 
-    tree = ToyTree(max_depth=4)
+    tree = ToyTree(max_depth=3)
     tree.fit(X, y)
 
     print(json.dumps(tree.tree_, indent=2))
-    print(y[X[:,2] <= 1.9])
-    print(y[X[:,2] > 1.9])
+    #print(y[X[:,2] <= 1.9])
+    #print(y[X[:,2] > 1.9])
         
 
